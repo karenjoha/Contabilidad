@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        "xdebug.php-debug",
+        "xdebug.php-pack",
+        "devsense.profiler-php-vscode",
+        "devsense.phptools-vscode",
+        "devsense.composer-php-vscode",
+        "zobo.php-intellisense",
+        "bmewburn.vscode-intelephense-client",
+        "github.vscode-pull-request-github",
+        "ms-vsliveshare.vsliveshare"
+    ]
+}

@@ -1,0 +1,22 @@
+textarea {
+    resize: none;
+    height: 150px;
+    text-align: left;
+}
+
+body>form>table>tfoot>tr>td>div {
+    display: flex;
+    justify-content: center;
+
+}
+
+body>form>table>tfoot>tr>td>div>button,
+body>form>table>tfoot>tr>td>div>a {
+    padding: 5px 40px;
+    margin: 10px;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: rgb(108 117 125 / 20%);
+}
+

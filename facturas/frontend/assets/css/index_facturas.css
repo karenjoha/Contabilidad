@@ -1,0 +1,62 @@
+/* PRIORIDAD ALTA */
+.st-passed{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    background-color: #FF6933;
+    border-color: #FF6933;
+    border-radius: 5px ;
+    padding: 10px ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+}
+
+/* PRIORIDAD MEDIA */
+.st-pending{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    background-color: #FDB10B;
+    border-color: #FDB10B;
+    border-radius: 5px ;
+    padding: 10px ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+}
+
+.st-progress{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    background-color: #ff6f3c;
+    border-color: #ff6f3c;
+    border-radius: 5px ;
+    padding: 10px ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+}
+
+/* PRIORIDAD BAJA */
+.st-denied{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    background-color: #93a711;
+    border-color: #93a711;
+    border-radius: 5px ;
+    padding: 10px ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+}
+
+
+.center {
+
+    text-align: center;
+    vertical-align: middle;
+    min-height: 50px;
+  }
+
+  /* OCULTAR EXCESO DE CARACTERES */
+.truncate-text {
+    /* Asegurarse de que el contenido del div esté centrado horizontalmente */
+    display: inline-block;
+    text-align: center;
+    /* Establecer el ancho máximo de la celda de la tabla */
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }

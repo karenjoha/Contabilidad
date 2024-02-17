@@ -1,0 +1,41 @@
+Options +FollowSymLinks
+Options -MultiViews
+Options All -Indexes
+RewriteEngine On
+
+Header set Access-Control-Allow-Methods "GET, POST, PUT , PATCH, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type"
+
+# remove php ext
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+#remove html ext
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+
+# Forbidden - Accceso denegado
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files ~ "\.(env|json|config.js|md|gitignore|gitattributes|lock)$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+ErrorDocument 403 /contabilidad/403.html
+ErrorDocument 404 /contabilidad/404.html
+
+Redirect 301 /contabilidad/cttos_section/cttos_inmueble_index.php /contabilidad/contratos/frontend/
+Redirect 301 /contabilidad/contratos/frontend/index.html /contabilidad/contratos/frontend/
+Redirect 301 /contabilidad/inventarios_section/inventario_index.php /contabilidad/inventarios/frontend/
+Redirect 301 /contabilidad/sagrilaft_section/index.php /contabilidad/sagrilaft/frontend/
+
+
+
+
+

@@ -1,0 +1,14 @@
+.index_menu {
+	height: 100vh;
+	width: fit-content;
+	z-index: 2;
+	align-items: center;
+	overflow: scroll;
+	display: block;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.landing-image {
+		margin-left: 0px;
+	}
+}

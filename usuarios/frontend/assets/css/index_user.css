@@ -1,0 +1,34 @@
+/* Estilos principales para la tabla */
+.table {
+    width: 100%;
+    margin: 0;
+}
+
+.responsive-active {
+    display: none;
+}
+
+.tabla-containe {
+    overflow-x: auto;
+}
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+    .table {
+        margin: 0;
+    }
+
+    .responsive-hidden {
+        display: none;
+    }
+
+    .responsive-active {
+        display: table-cell;
+    }
+
+    .responsive-box {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
+}
