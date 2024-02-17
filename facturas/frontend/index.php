@@ -127,15 +127,11 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 			<thead>
 				<tr>
-					<td class="responsive-active"></td>
 					<th>ID</th>
 					<th class="responsive-hidden">FECHA REGISTRO</th>
-					<th class="responsive-hidden">NÚMERO DE <br> CONTRATO </th>
-					<th class="responsive-hidden">NOMBRES</th>
-					<th>NÚMERO <br> DOCUMENTO</th>
-					<th class="responsive-hidden">MENSAJE</th>
-					<th class="responsive-hidden">ÁREA ENCARGADA</th>
-					<th>ESTADO</th>
+					<th class="responsive-hidden">NÚMERO DE <br> FACTURA </th>
+					<th class="responsive-hidden">DESCRIPCION</th>
+					<th class="responsive-hidden">EMPLEADO QUE REGISTRO</th>
 					<th class="responsive-hidden" class="text-center">ACCIONES</th>
 					<?php if ($_SESSION['rol'] == 1) { ?>
 						<th class="responsive-hidden" class="text-center">ELIMINAR</th>
@@ -146,23 +142,7 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 				<?php foreach ($listar as $dato): ?>
 
-					<?php
-					if ($dato['estado'] == 'DENEGADO') {
-						$estado = '<span class="st-passed">' . $dato['estado'] . '</span>';
-					} elseif ($dato['estado'] == 'GESTIÓN') {
-						$estado = '<span class="st-pending">' . $dato['estado'] . '</span>';
-					} elseif ($dato['estado'] == 'GESTIONADO') {
-						$estado = '<span class="st-denied">' . $dato['estado'] . '</span>';
-					} elseif ($dato['estado'] == 'EN PROCESO') {
-						$estado = '<span class="st-progress">' . $dato['estado'] . '</span>';
-					} else {
-						$estado = '<span>' . $dato['estado'] . '</span>';
-					}
-					?>
-
 					<tr>
-						<!-- Botón Responsive-->
-						<td class="responsive-active"><img src="assets/images/svg/plus-circle-fill.svg" alt="toggle button" /> </td>
 
 						<!-- ID -->
 						<td>
@@ -185,42 +165,19 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 							$fecha = $fechaV[0] . '/' . $fechaV[1] . '/' . $fechaV[2];
 						}
 						?>
-
 						<td class="responsive-hidden">
 							<?php echo $fecha; ?>
 						</td>
-						<!-- Número de contrato -->
 						<td class="responsive-hidden">
-							<?php echo $dato['contractNumber']; ?>
+							<?php echo $dato['num_factura']; ?>
 						</td>
-
-
-						<!-- NOMBRES -->
-						<td class="responsive-hidden" class="center">
-							<div title="<?php echo $dato['nombres_apellidos']; ?>" class="truncate-text">
-								<?php echo $dato['nombres_apellidos']; ?>
-							</div>
-						</td>
-
-						<!-- IDENTIFICACION -->
-						<td>
-							<?php echo $dato['identificacion']; ?>
-						</td>
-
-						<!-- MENSAJE -->
-						<td class="responsive-hidden" class="center">
-							<div title="<?php echo $dato['mensaje']; ?>" class="truncate-text">
-								<?php echo $dato['mensaje']; ?>
-							</div>
-						</td>
-
 						<td class="responsive-hidden">
-							<?php echo $dato['area_enc'] ?>
+							<?php echo $dato['descripcion'] ?>
 						</td>
-						<!-- ESTADO -->
-						<td>
-							<?php echo $estado; ?>
+						<td class="responsive-hidden">
+							<?php echo $dato['empleado_registra'] ?>
 						</td>
+
 						<!-- BOTÓN ACCIONES -->
 						<td class="responsive-hidden">
 							<li class="dropdown" style="list-style: none;">

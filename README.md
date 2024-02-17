@@ -52,3 +52,11 @@ log visitas
 	2	usuario	varchar(255)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
 	3	fecha_ingreso	datetime			No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
 	4	fecha_salida	datetime			Sí	NULL			Cambiar Cambiar	Eliminar Eliminar
+
+
+FACTURAS
+	1	id_factura Primaria	int(11)			No	Ninguna		AUTO_INCREMENT	Cambiar Cambiar	Eliminar Eliminar
+	2	num_factura	int(20)			No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
+	3	fecha_registro	varchar(25)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
+	4	empleado_registra	varchar(100)	utf8mb4_general_ci		Sí	NULL			Cambiar Cambiar	Eliminar Eliminar
+	5	descripcion	varchar(50)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar

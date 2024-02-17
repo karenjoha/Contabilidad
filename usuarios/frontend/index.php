@@ -266,15 +266,6 @@ if ($rol != 1) {
 								<input type="file" class="form-control" name="firma" id="seleccionArchivos" aria-describedby="firma" size="20" accept=".jpg, .jpeg">
 							</div>
 
-							<div class="row">
-								<div class="col-xl-12">
-									<div class="card">
-										<div class="card-body">
-											<h3 class="card-title">FIRMA EMPLEADO</h3>
-											<img <?php echo $user->firma > 0 ? 'src="../../vendor/uploads/firmas empleados/' . $user->__GET('firma') . '"' : ''; ?> class="img_firma" id="imagenPrevisualizacion">
-										</div>
-									</div>
-								</div>
 								<div class="register-btn">
 									<button type="submit" class="button" form="user_form">ENVIAR</button>
 								</div>
