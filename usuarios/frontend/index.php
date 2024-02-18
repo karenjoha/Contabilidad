@@ -1,8 +1,6 @@
 <?php
 session_start();
 require '../../log-validation.php';
-// Incluye un objeto contenedor de las sedes llamado $sedes_names
-require '../../assets/objeto_modular/object_sedes.php';
 
 $usuario = $_SESSION['usuario'];
 $rol     = $_SESSION['rol'];
@@ -10,31 +8,6 @@ $rol     = $_SESSION['rol'];
 $roles = [
 	"0" => "Desactivado",
 	"1" => "Administrador",
-	"24" => "Asesor Archivo",
-	"3" => "Asesor Contratos",
-	"4" => "Asesor Interno Arrendamientos",
-	"19" => "Asesor Recibimientos e Inventarios",
-	"10" => "Asesor Externo Arrendamientos",
-	"11" => "Asesor Interno Ventas",
-	"14" => "Asesor Externo Ventas",
-	"15" => "Asesor Recibimientos",
-	"17" => "Asesor Mantenimientos",
-	"22" => "Asesor Juridico",
-	"25" => "Community Manager",
-	"9" => "Contabilidad",
-	"20" => "Coordinador Archivo",
-	"23" => "Coordinador Cartera",
-	"16" => "Coordinador Recibimientos e Inventarios",
-	"18" => "Coordinador Mantenimientos",
-	"2" => "Coordinador Sede Arrendamientos",
-	"13" => "Coordinador Sede Ventas",
-	"5" => "Gestion humana",
-	"8" => "Gestor Inventarios",
-	"7" => "Inventarista",
-	"21" => "Coordinador Juridico",
-	"6" => "Sagrilaft",
-	"26" => "Servicios Publicos",
-	"27" => "Gerencia"
 ];
 
 asort($roles);
@@ -189,32 +162,6 @@ if ($rol != 1) {
 								<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
 								<input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario" aria-label="Usuario" value="<?php echo $user->__GET('usuario'); ?>" autocomplete="off">
 							</div>
-							<!-- CAMPO SEDE -->
-							<div class="input-group mb-3">
-								<span class="input-group-text"><i class="bi bi-building"></i></span>
-								<select class="form-control" name="sede" id="sede" value="<?php echo $user->__GET('sede'); ?>">
-									<option value="<?php echo $user->__GET('sede'); ?>">
-										<?php echo $user->__GET('sede'); ?>
-									</option>
-									<?php
-									foreach ($sedes_names as $key):
-										?>
-										<option value="<?php echo $key; ?>">
-											<?php echo $key; ?>
-										</option>
-										<?php
-									endforeach;
-									?>
-									<option value="CALASANZ">CALASANZ</option>
-									<option value="LAURELES - VENTAS">LAURELES - VENTAS</option>
-									<option value="VIRTUAL">VIRTUAL</option>
-								</select>
-							</div>
-							<!-- CAMPO 2 -->
-							<div class="input-group mb-3">
-								<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-								<input type="text" class="form-control" name="num_extension" id="num_extension" placeholder="número de la extensión" value="<?php echo $user->__GET('num_extension'); ?>" autocomplete="off" />
-							</div>
 
 							<!-- CAMPO 3 -->
 							<div class="input-group mb-3">
@@ -264,11 +211,11 @@ if ($rol != 1) {
 							<div class="mb-3">
 								<label for="seleccionArchivos" class="form-label"> Cargar Firma</label>
 								<input type="file" class="form-control" name="firma" id="seleccionArchivos" aria-describedby="firma" size="20" accept=".jpg, .jpeg">
-							</div>
-
 								<div class="register-btn">
 									<button type="submit" class="button" form="user_form">ENVIAR</button>
 								</div>
+							</div>
+
 							</div>
 						</div>
 					</div>

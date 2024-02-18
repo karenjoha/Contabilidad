@@ -42,7 +42,7 @@
 
                //DATOS
                $datos = array(
-                               "id_facturas" => $_POST["id_facturas"],
+                               "id_factura" => $_POST["id_factura"],
                                "num_factura" => $_POST["num_factura"],
                                 "fecha_registro" => $_POST["fecha_registro"],
                                 "descripcion" => $_POST["area_enc"],

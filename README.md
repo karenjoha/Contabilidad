@@ -33,30 +33,42 @@ Aplicación web de Portada Inmobiliaria para el gestionamiento
 
 LA BD SE LLAMA CONTABILIDAD
 
-
-usuarios
-	#	Nombre	Tipo	Cotejamiento	Atributos	Nulo	Predeterminado	Comentarios	Extra	Acción
-	1	id Primaria	int(6)		UNSIGNED	No	Ninguna		AUTO_INCREMENT	Cambiar Cambiar	Eliminar Eliminar
-	2	doc_identidad	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	3	usuario	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	4	email	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	5	nombres	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	6	apellidos	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	7	contrasena	varchar(255)	utf8_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	8	rol	int(6)			No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-
-
-
-log visitas
-	1	id_log Primaria	int(11)			No	Ninguna		AUTO_INCREMENT	Cambiar Cambiar	Eliminar Eliminar
-	2	usuario	varchar(255)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	3	fecha_ingreso	datetime			No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	4	fecha_salida	datetime			Sí	NULL			Cambiar Cambiar	Eliminar Eliminar
+´´´sql´´´
+CREATE TABLE usuarios (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    doc_identidad VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    usuario VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    email VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    nombres VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    apellidos VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    contrasena VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+    rol INT(6) NOT NULL,
+    firma varchar(255)
+);
+´´´
 
 
-FACTURAS
-	1	id_factura Primaria	int(11)			No	Ninguna		AUTO_INCREMENT	Cambiar Cambiar	Eliminar Eliminar
-	2	num_factura	int(20)			No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	3	fecha_registro	varchar(25)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
-	4	empleado_registra	varchar(100)	utf8mb4_general_ci		Sí	NULL			Cambiar Cambiar	Eliminar Eliminar
-	5	descripcion	varchar(50)	utf8mb4_general_ci		No	Ninguna			Cambiar Cambiar	Eliminar Eliminar
+CREATE TABLE FACTURAS (
+    id_factura INT(11) AUTO_INCREMENT PRIMARY KEY,
+    num_factura INT(20) NOT NULL,
+    fecha_registro VARCHAR(25) COLLATE utf8mb4_general_ci NOT NULL,
+    empleado_registra VARCHAR(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    descripcion VARCHAR(50) COLLATE utf8mb4_general_ci NOT NULL
+);
+CREATE TABLE log_visitas (
+    id_log INT(11) AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(255) COLLATE utf8mb4_general_ci NOT NULL,
+    fecha_ingreso DATETIME NOT NULL,
+    fecha_salida DATETIME DEFAULT NULL
+);
+
+
+CREATE TABLE eventoscalendar (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  evento VARCHAR(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  color_evento VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  fecha_inicio VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  fecha_fin VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL
+);
+
+

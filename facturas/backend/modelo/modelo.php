@@ -53,20 +53,21 @@ class ModeloFacturas{
 
     }
 
-    static public function mdlEliminar($tabla1, $valor){
+	static public function mdlEliminar($tabla1, $valor){
 
-        //INFO PRINCIPAL
-        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla1 WHERE id_factura= :id_factura");
+		//INFO PRINCIPAL
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla1 WHERE id_factura = :id_factura");
 
-        $stmt->bindParam(':id_factura', $valor, PDO::PARAM_INT);
+		$stmt->bindParam(':id_factura', $valor, PDO::PARAM_INT);
 
+		try {
+			$stmt->execute();
+		} catch(PDOException $e) {
+			echo "Error al eliminar el registro: " . $e->getMessage();
+			// Puedes manejar el error de otra manera, como lanzando una excepción o registrándolo en un archivo de registro
+		}
 
-        try{
-            $stmt->execute() == true;
-        }
-        catch(Error){
-            print_r(Conexion::conectar()->errorInfo());
-        }
-        $stmt = null;
-    }
+		$stmt = null;
+	}
+
 }

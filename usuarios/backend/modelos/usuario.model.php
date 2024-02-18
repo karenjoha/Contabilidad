@@ -156,7 +156,7 @@ class UsuarioModel {
 
 
 		try {
-			$sql = "INSERT INTO usuarios (id, doc_identidad, usuario, email, nombres, apellidos, contrasena, rol, firma, sede, num_extension) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			$sql = "INSERT INTO usuarios (id, doc_identidad, usuario, email, nombres, apellidos, contrasena, rol) VALUES (?,?,?,?,?,?,?,?)";
 
 			$this->pdo->prepare($sql)->execute(
 				array(

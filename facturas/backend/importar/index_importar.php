@@ -32,7 +32,7 @@
 							<div id="imgImport">
 								<br>
 								<center>
-									<img src="../../vendor/images/icon-contract.png" alt="" width="10%" >
+									<img src="../../vendor/images/icon-home.png" alt="" width="10%" >
 								</center>
 							</div>
 							<br>

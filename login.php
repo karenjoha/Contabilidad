@@ -74,7 +74,7 @@ if (isset($_REQUEST['iniciar'])) {
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="icon" href="vendor/images/icon-home.png" type="image/png">
+	<link rel="icon-home" type="image/png">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Iniciar Sesión</title>
 
@@ -93,30 +93,17 @@ if (isset($_REQUEST['iniciar'])) {
 
 </head>
 
-<body>
-	<div class="loader_container">
-		<div class="loader">
-			<div class="one"></div>
-			<div class="two"></div>
-			<div class="three"></div>
-			<div class="four"></div>
-			<div class="five"></div>
-			<div class="six"></div>
-			<div class="seven"></div>
-			<div class="eight"></div>
-		</div>
-	</div>
-
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('vendor/images/background-login.jpg');">
-			<div class="wrap-login100 p-b-30">
+<body style="background-color:black">
+	<div>
+		<div  style="background-color:black">
+			<div>
 				<form id="login-form" method="post" class="login100-form validate-form">
 					<div class="login100-form-avatar">
-						<img src="vendor/images/icon-home.jpg" alt="contabilidad">
-					</div>
+<!-- 						<img src="vendor/images/icon-home.jpg" alt="contabilidad">
+ -->					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
-						Portada Inmobiliaria
+						Ingresa
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate="Ingrese su Usuario">

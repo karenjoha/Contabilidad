@@ -27,7 +27,7 @@ $rol     = $_SESSION['rol'];
 
 //Editar REGISTROS
 if (isset($_GET["id"])) {
-	$item  = "id_facturas";
+	$item  = "id_factura";
 	$valor = $_GET["id"];
 
 	$listar     = controladorFacturas::ctrListarRegistros($item, $valor);
@@ -43,21 +43,15 @@ if (isset($_GET["id"])) {
 		$fecha_r       = explode('-', $separar[0]);
 		$mostrar_fecha = $fecha_r[0] . '/' . $fecha_r[1] . '/' . $fecha_r[2];
 	}
-
 	// Listar fecha importada
 	else {
 		$mostrar_fecha = $separar[0] . '/' . $separar[1] . '/' . $separar[2];
-
 	}
-
 } else {
-
 	//Metodo estatico, permite reutilizar los datos
 	$registro = controladorFacturas::ctrRegistro();
 }
-
 if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
-
 	<!DOCTYPE html>
 	<html lang="es">
 
@@ -66,30 +60,24 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 		<!-- Bootstrap CSS v5.0.2 -->
 		<link rel="stylesheet" href="../../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
-
 		<!-- Font Raleway -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap">
-
 		<!-- Librerías Locales -->
 		<link rel="stylesheet" href="../assets/css/form_facturas.css">
 		<link rel="stylesheet" href="../../../vendor/css/preloader.css?n=1">
-
 		<!-- Select 2 -->
 		<link rel="stylesheet" href="../../../vendor/select2/select2.min.css">
 		<link rel="stylesheet" href="../../../vendor/select2/select2-bootstrap-5-theme.min.css">
-
 		<style>
 			select>option {
 				text-align: center;
 			}
 		</style>
 	</head>
-
 	<body>
 		<div class="loader_container">
 			<div class="loader">
@@ -103,19 +91,14 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 				<div class="eight"></div>
 			</div>
 		</div>
-
 		<form id="form_facturas" method="POST">
-
 			<!-- ID REGISTRO -->
 			<?php if (isset($_GET['id'])) { ?>
 				<!-- Obtenemos los id y los imprimimos ocultos en la vista para actualizar las respectivas tablas desde el modelo -->
-				<input type="hidden" name="id_facturas" value="<?php echo $listar['id_facturas'] ?>">
-
+				<input type="hidden" name="id_factura" value="<?php echo $listar['id_factura'] ?>">
 			<?php } ?>
-
 			<!-- USUARIO CREADOR -->
 			<input type="hidden" name="usu_cambio" value="<?php echo $usuario ?>">
-
 			<table class="table table-light">
 				<thead>
 					<tr>
@@ -141,7 +124,6 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 									</svg>
 									FORMULARIO FACTURAS
 								</span>
-
 							</div>
 						</th>
 					</tr>
@@ -151,11 +133,9 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<td colspan="1">
 							<div class="mb-3">
 								<label for="radico" class="form-label">NÚMERO RADICADO</label>
-								<input id="radicado" readonly type="text" class="form-control" autocomplete="off" value=" <?php echo isset($_GET['id_facturas']) ? $_GET['id_facturas'] : ''; ?>">
+								<input id="radicado" readonly type="text" class="form-control" autocomplete="off" value=" <?php echo isset($_GET['id_factura']) ? $_GET['id_factura'] : ''; ?>">
 							</div>
 						</td>
-
-
 						<td colspan="1">
 							<div class="mb-3">
 								<label for="fecha_registro" class="form-label">FECHA DE REGISTRO</label>
@@ -190,36 +170,21 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 									<option value="<?php echo isset($listar['empleado_registra']) ? $listar['empleado_registra'] : ''; ?>" selected>
 										<?php echo isset($listar['empleado_registra']) ? $listar['empleado_registra'] : ''; ?>
 									</option>
-									<option value="ADMINISTRACIÓN">ADMINISTRACIÓN</option>
-									<option value="ADMINISTRACIONES">ADMINISTRACIONES</option>
-									<option value="ARCHIVO">ARCHIVO</option>
-									<option value="ARRENDAMIENTOS">ARRENDAMIENTOS</option>
-									<option value="CARTERA">CARTERA</option>
-									<option value="CONTABILIDAD">CONTABILIDAD</option>
-									<option value="JURIDICO">JURÍDICO</option>
-									<option value="MANTENIMIENTOS">MANTENIMIENTOS</option>
-									<option value="RECIBIMIENTOS">RECIBIMIENTOS</option>
-									<option value="SERVICIOS PÚBLICOS">SERVICIOS PÚBLICOS</option>
-									<option value="TESORERIA">TESORERÍA</option>
-									<option value="VENTAS">VENTAS</option>
+									<option value="MIGUEL ZAPATA">MIGUEL ZAPATA</option>
 								</select>
 							</div>
 						</td>
 					</tr>
-
 					<tr>
 						<td colspan="2">
 							<div class="mb-3" style="display: flex; flex-direction: column; align-items: center; ">
 								<label for="descripcion" class="form-label">DESCRIPCION</label>
 								<textarea style="max-width: 500px;" class="form-control" name="descripcion" id="descripcion" rows="3" value="<?php if (isset($_GET['id'])) {
 									echo $listar['descripcion'];
-								} ?>"><?php if (isset($_GET['id'])) {
-									 echo $listar['descripcion'];
-								 } ?></textarea>
+								} ?>"><?php if (isset($_GET['id'])) {echo $listar['descripcion'];} ?></textarea>
 							</div>
 						</td>
 					</tr>
-
 				<tfoot class="table-buttons">
 					<tr>
 						<td colspan="6">
@@ -233,17 +198,14 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 				</tbody>
 			</table>
 		</form>
-
 		<!-- Preloader -->
 		<script src="../../../vendor/jquery/jquery-3.6.0.min.js"></script>
 		<script src="../../../vendor/js/general.js"></script>
-
 		<!-- Select 2 -->
 		<script src="../../../vendor/select2/select2.min.js"></script>
 		<script src="../assets/js/form_facturas.js?v=2"></script>
 		<script src="../../../vendor/sweet_alert/sweetalert2.all.min.js"></script>
 	</body>
-
 	</html>
 <?php } else {
 	echo '<script language="javascript">alert("NO ESTAS AUTORIZADO PARA INGRESAR A ESTE MODULO.");</script>';
