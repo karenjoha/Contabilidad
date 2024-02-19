@@ -1,38 +1,6 @@
 
 # contabilidad
 
-Aplicación web de Portada Inmobiliaria para el gestionamiento
-
-# en general: **use preferably English**
-
-## tabla de Contenido
-
-- [Xampp configuration](./docs/winget.md#xampp)
-- [Git Tutorial](./docs/Git_Tutorial.md)
-- [Naming convention](./docs/Nomenclatura.md#naming-convention)
-- [Doc convention](./docs/StyleGuide.md#documentation-convention)
-- [Bases de datos](./docs/db.md)
-- [Winget](./docs/winget.md)
-- [Nomenclatura](./docs/Nomenclatura.md)
-- [Getting Started](./docs//Getting%20Started.md)
-- [Style Guide](./docs/StyleGuide.md)
-- [Diagramas](./docs/Diagramas.md)
-
-### Módulos
-
-- [Inventarios](./inventarios/README.md)
-- [Mantenimientos](./mantenimientos/readme.md)
-- [FACTURAS](./facturas/README.md)
-- [Terminación de contratos](./terminacion_contratos/readme.md)
-- [Dispositivos](./dispositivos/readme.md)
-- [Archivos](./archivos/readme.md)
-- [Inmuebles](./inmuebles/README.md)
-- [Usuarios](./usuarios/readme.md)
-- [Contratos](./contratos/docs/readme.md)
-- [Entregas](./recibimientos/rec_simi/README.md)
-
-LA BD SE LLAMA CONTABILIDAD
-
 ´´´sql´´´
 CREATE TABLE usuarios (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
