@@ -79,18 +79,6 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 		</style>
 	</head>
 	<body>
-		<div class="loader_container">
-			<div class="loader">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-				<div class="four"></div>
-				<div class="five"></div>
-				<div class="six"></div>
-				<div class="seven"></div>
-				<div class="eight"></div>
-			</div>
-		</div>
 		<form id="form_facturas" method="POST">
 			<!-- ID REGISTRO -->
 			<?php if (isset($_GET['id'])) { ?>

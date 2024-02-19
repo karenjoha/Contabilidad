@@ -57,20 +57,6 @@ if ($rol != 1) {
 	</head>
 
 	<body>
-
-		<div class="loader_container">
-			<div class="loader">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-				<div class="four"></div>
-				<div class="five"></div>
-				<div class="six"></div>
-				<div class="seven"></div>
-				<div class="eight"></div>
-			</div>
-		</div>
-
 		<?php require('../../nav.php'); ?>
 
 		<div class="table_header">
