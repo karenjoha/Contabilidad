@@ -29,6 +29,12 @@ CREATE TABLE log_visitas (
     fecha_ingreso DATETIME NOT NULL,
     fecha_salida DATETIME DEFAULT NULL
 );
+CREATE TABLE log_visitas (
+    id_log INT(11) AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(255) COLLATE utf8mb4_general_ci NOT NULL,
+    fecha_ingreso DATETIME NOT NULL,
+    fecha_salida DATETIME DEFAULT NULL
+);
 
 
 CREATE TABLE eventoscalendar (

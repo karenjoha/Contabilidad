@@ -8,10 +8,10 @@ class DB {
     private $charset;
 
     public function __construct(){
-        $this->host = 'localhost';
-        $this->db = 'contabilidad';
-        $this->user = 'root';
-        $this->password = "";
+        $this->host = 'https://auth-db884.hstgr.io/';
+        $this->db = 'u155011905_contabilidad';
+        $this->user = 'u155011905_lmzt';
+        $this->password = "0w1A~Fuyz=H";
         $this->charset = 'utf8mb4';
     }
 
