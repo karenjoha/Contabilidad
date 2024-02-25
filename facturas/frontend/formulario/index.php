@@ -51,7 +51,7 @@ if (isset($_GET["id"])) {
 	//Metodo estatico, permite reutilizar los datos
 	$registro = controladorFacturas::ctrRegistro();
 }
-if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
+if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 	<!DOCTYPE html>
 	<html lang="es">
 
@@ -60,6 +60,8 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="../../../vendor/images/icon-home.png" type="image/png">
+
 		<!-- Bootstrap CSS v5.0.2 -->
 		<link rel="stylesheet" href="../../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
 		<!-- Font Raleway -->
@@ -79,18 +81,6 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 		</style>
 	</head>
 	<body>
-		<div class="loader_container">
-			<div class="loader">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-				<div class="four"></div>
-				<div class="five"></div>
-				<div class="six"></div>
-				<div class="seven"></div>
-				<div class="eight"></div>
-			</div>
-		</div>
 		<form id="form_facturas" method="POST">
 			<!-- ID REGISTRO -->
 			<?php if (isset($_GET['id'])) { ?>
@@ -130,13 +120,8 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 				</thead>
 				<tbody>
 					<tr>
-						<td colspan="1">
-							<div class="mb-3">
-								<label for="radico" class="form-label">NÚMERO RADICADO</label>
-								<input id="radicado" readonly type="text" class="form-control" autocomplete="off" value=" <?php echo isset($_GET['id_factura']) ? $_GET['id_factura'] : ''; ?>">
-							</div>
-						</td>
-						<td colspan="1">
+
+						<td colspan="2">
 							<div class="mb-3">
 								<label for="fecha_registro" class="form-label">FECHA DE REGISTRO</label>
 								<input type='text' class="form-control date-input" readonly value="<?php if (isset($_GET['id'])) {
@@ -154,15 +139,24 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 					</tr>
 					<tr>
 						<td colspan="1">
-							<div class="mb-3">
-								<label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
-								<input type="text" class="form-control" autocomplete="off" <?php if (isset($listar['num_factura']) && $listar['num_factura'] != '') {
-									echo 'readonly';
-								} ?> name="num_factura" id="num_factura" aria-describedby="helpId" placeholder="" value="<?php if (isset($_GET['id'])) {
-									  echo $listar['num_factura'];
-								  } ?>">
-							</div>
-						</td>
+    <div class="mb-3">
+        <label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
+        <input type="text" class="form-control" autocomplete="off"
+            <?php
+                // Verificamos si es un nuevo registro o si el rol es 1
+                if (!isset($_GET['id']) || $rol == 1) {
+                    // Si es un nuevo registro o el rol es 1, el campo no estará en modo de solo lectura
+                    echo '';
+                } else {
+                    // De lo contrario, establecemos readonly
+                    echo 'readonly';
+                }
+            ?>
+            name="num_factura" id="num_factura" aria-describedby="helpId" placeholder=""
+            value="<?php if (isset($_GET['id'])) { echo $listar['num_factura']; } ?>">
+    </div>
+</td>
+
 						<td colspan="1">
 							<div class="mb-3">
 								<label for="empleado_registra" class="form-label">ASESOR QUIEN REGISTRA</label>

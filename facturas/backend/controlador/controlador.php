@@ -45,7 +45,9 @@
                                "id_factura" => $_POST["id_factura"],
                                "num_factura" => $_POST["num_factura"],
                                 "fecha_registro" => $_POST["fecha_registro"],
-                                "descripcion" => $_POST["area_enc"],
+                                "descripcion" => $_POST["descripcion"],
+                                "empleado_registra" => $_POST["empleado_registra"],
+
                             );
 
                 $respuesta = ModeloFacturas::mdlActualizar($tabla1,$datos);

@@ -2,7 +2,7 @@
 
     class Conexion{
         static public function conectar(){
-            $conn = new PDO("mysql:host=localhost;dbname=contabilidad","root","");
+            $conn = new PDO("mysql:host=localhost;dbname=u155011905_contabilidad","u155011905_lmzt","0w1A~Fuyz=H");
             $conn->exec("set names utf8");
             return $conn;
         }

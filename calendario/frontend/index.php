@@ -2,7 +2,6 @@
 date_default_timezone_set('America/Bogota');
 setlocale(LC_TIME, 'es_VE.UTF-8', 'esp');
 session_start();
-require_once '../../log-validation.php';
 
 $usuario = trim($_SESSION['usuario']);
 $rol     = $_SESSION['rol'];
@@ -25,7 +24,7 @@ if ($rol != 1) {
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>CALENDARIO</title>
-		<link rel="icon-home" type="image/png">
+	    <link rel="icon" href="../../vendor/images/icon-home.png" type="image/png">
 		<link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,8 +36,22 @@ if ($rol != 1) {
 	</head>
 
 	<body>
-		<?php require '../../nav.php'; ?>
+	   	<div class="inv_index">
+			<?php require '../../nav.php'; ?>
+			<div class="btn btn-actions">
+				<a href="../../" class="btn btn-danger btn-lg" <?php if ($_SESSION['rol'] == 27) {
+					echo 'style="display: none;"';
+				} ?>>
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+					</svg>
+					Atrás</a>&nbsp;
+			</div>
+			<br>
 
+		</div>
+
+		<?php require_once '../../nav.php'; ?>
 		<?php
 		include('../backend/config.php');
 
@@ -57,13 +70,7 @@ if ($rol != 1) {
 				</div>
 
 			</div>
-			<a href="../../" class="btn btn-danger btn-lg" <?php if ($_SESSION['rol'] == 27) {
-				echo 'style="display: none;"';
-			} ?>>
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-					<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
-				</svg>
-				Atrás</a>&nbsp;
+
 			<div class="row">
 				<div class="col-md-12 mb-3">
 					<h3 class="text-center" id="title">Eventos Programados</h3>

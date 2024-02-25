@@ -8,6 +8,7 @@ $rol     = $_SESSION['rol'];
 $roles = [
 	"0" => "Desactivado",
 	"1" => "Administrador",
+	"2" => "Cartera",
 ];
 
 asort($roles);
@@ -31,6 +32,7 @@ if ($rol != 1) {
 		<!--meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <link rel="icon" href="../../vendor/images/icon-home.png" type="image/png">
 
 		<!-- Main CSS-->
 		<link href="assets/css/users_form.css?v=1.1.1" rel="stylesheet" media="all">
@@ -57,20 +59,6 @@ if ($rol != 1) {
 	</head>
 
 	<body>
-
-		<div class="loader_container">
-			<div class="loader">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-				<div class="four"></div>
-				<div class="five"></div>
-				<div class="six"></div>
-				<div class="seven"></div>
-				<div class="eight"></div>
-			</div>
-		</div>
-
 		<?php require('../../nav.php'); ?>
 
 		<div class="table_header">
@@ -201,28 +189,30 @@ if ($rol != 1) {
 								<span class="input-group-text input-group-password" id="password_confirm_reveal"><i class="bi bi-eye-fill"></i></span>
 							</div>
 						</form>
-					</div>
-				</div>
-				<div class="col-lg-6 mb-4 flex-grow-1">
-					<div class=" testbox">
+										<div class="">
+					<div class=" testbox" style="display:none">
 
 						<div class="testbox_second_container">
 
 							<div class="mb-3">
 								<label for="seleccionArchivos" class="form-label"> Cargar Firma</label>
 								<input type="file" class="form-control" name="firma" id="seleccionArchivos" aria-describedby="firma" size="20" accept=".jpg, .jpeg">
-								<div class="register-btn">
-									<button type="submit" class="button" form="user_form">ENVIAR</button>
-								</div>
+
 							</div>
 
 							</div>
 						</div>
 					</div>
+					<div class="register-btn">
+						<button type="submit" class="button" form="user_form">ENVIAR</button>
+					</div
 					<div class="text-center">
 						<button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top"><i class="bi bi-arrow-up"></i><br><small>CERRAR</small></button>
 					</div>
 				</div>
+					</div>
+				</div>
+
 			</div>
 
 		</div>
