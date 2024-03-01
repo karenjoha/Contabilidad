@@ -51,7 +51,11 @@ if (isset($_GET["id"])) {
 	//Metodo estatico, permite reutilizar los datos
 	$registro = controladorFacturas::ctrRegistro();
 }
-if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
+
+// Aquí establecemos el usuario que inició sesión como el empleado que registra
+$empleado_registra = $usuario;
+
+if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 	<!DOCTYPE html>
 	<html lang="es">
 
@@ -99,6 +103,7 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 			<?php } ?>
 			<!-- USUARIO CREADOR -->
 			<input type="hidden" name="usu_cambio" value="<?php echo $usuario ?>">
+			<input type="hidden" name="empleado_registra" value="<?php echo $empleado_registra ?>">
 			<table class="table table-light">
 				<thead>
 					<tr>
@@ -130,12 +135,7 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 				</thead>
 				<tbody>
 					<tr>
-						<td colspan="1">
-							<div class="mb-3">
-								<label for="radico" class="form-label">NÚMERO RADICADO</label>
-								<input id="radicado" readonly type="text" class="form-control" autocomplete="off" value=" <?php echo isset($_GET['id_factura']) ? $_GET['id_factura'] : ''; ?>">
-							</div>
-						</td>
+
 						<td colspan="1">
 							<div class="mb-3">
 								<label for="fecha_registro" class="form-label">FECHA DE REGISTRO</label>
@@ -151,26 +151,50 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 								} ?>" />
 							</div>
 						</td>
+						<td colspan="1">
+							<div class="mb-3">
+                                <label for="documento" class="form-label">DOCUMENTO</label>
+                                <input type="text" class="form-control" autocomplete="off"
+                                    <?php
+                                        // Verificamos si es un nuevo registro o si el rol es 1
+                                        if (!isset($_GET['id']) || $rol == 1) {
+                                            // Si es un nuevo registro o el rol es 1, el campo no estará en modo de solo lectura
+                                            echo '';
+                                        } else {
+                                            // De lo contrario, establecemos readonly
+                                            echo 'readonly';
+                                        }
+                                    ?>
+                                    name="documento" id="documento" aria-describedby="helpId" placeholder=""
+                                    value="<?php if (isset($_GET['id'])) { echo $listar['documento']; } ?>">
+                            </div>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="1">
-							<div class="mb-3">
-								<label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
-								<input type="text" class="form-control" autocomplete="off" <?php if (isset($listar['num_factura']) && $listar['num_factura'] != '') {
-									echo 'readonly';
-								} ?> name="num_factura" id="num_factura" aria-describedby="helpId" placeholder="" value="<?php if (isset($_GET['id'])) {
-									  echo $listar['num_factura'];
-								  } ?>">
-							</div>
-						</td>
+                            <div class="mb-3">
+                                <label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
+                                <input type="text" class="form-control" autocomplete="off"
+                                    <?php
+                                        // Verificamos si es un nuevo registro o si el rol es 1
+                                        if (!isset($_GET['id']) || $rol == 1) {
+                                            // Si es un nuevo registro o el rol es 1, el campo no estará en modo de solo lectura
+                                            echo '';
+                                        } else {
+                                            // De lo contrario, establecemos readonly
+                                            echo 'readonly';
+                                        }
+                                    ?>
+                                    name="num_factura" id="num_factura" aria-describedby="helpId" placeholder=""
+                                    value="<?php if (isset($_GET['id'])) { echo $listar['num_factura']; } ?>">
+                            </div>
+                        </td>
+
 						<td colspan="1">
 							<div class="mb-3">
 								<label for="empleado_registra" class="form-label">ASESOR QUIEN REGISTRA</label>
 								<select class="form-select" name="empleado_registra" id="empleado_registra" type="text">
-									<option value="<?php echo isset($listar['empleado_registra']) ? $listar['empleado_registra'] : ''; ?>" selected>
-										<?php echo isset($listar['empleado_registra']) ? $listar['empleado_registra'] : ''; ?>
-									</option>
-									<option value="MIGUEL ZAPATA">MIGUEL ZAPATA</option>
+									<option value="<?php echo $usuario; ?>" selected><?php echo $usuario; ?></option>
 								</select>
 							</div>
 						</td>
@@ -185,29 +209,26 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 							</div>
 						</td>
 					</tr>
-				<tfoot class="table-buttons">
 					<tr>
-						<td colspan="6">
-							<div>
-								<a href="../index.php" class="btn btn-primary">Volver</a>
-								<button id="btn_enviar" type="submit" class="btn btn-success">Enviar</button>
+						<td colspan="2">
+
+							<div class="d-flex justify-content-center">
+						    <a href="../index.php" class="btn btn-danger">Volver</a>
+								<button type="submit" class="btn btn-primary"><?php if (isset($_GET['id'])) {
+										echo "ACTUALIZAR REGISTRO";
+									} else {
+										echo "REGISTRAR FACTURA";
+									} ?></button>
 							</div>
 						</td>
 					</tr>
-				</tfoot>
 				</tbody>
 			</table>
 		</form>
-		<!-- Preloader -->
-		<script src="../../../vendor/jquery/jquery-3.6.0.min.js"></script>
-		<script src="../../../vendor/js/general.js"></script>
-		<!-- Select 2 -->
-		<script src="../../../vendor/select2/select2.min.js"></script>
-		<script src="../assets/js/form_facturas.js?v=2"></script>
-		<script src="../../../vendor/sweet_alert/sweetalert2.all.min.js"></script>
 	</body>
 	</html>
-<?php } else {
-	echo '<script language="javascript">alert("NO ESTAS AUTORIZADO PARA INGRESAR A ESTE MODULO.");</script>';
-	echo '<script language="javascript">location.assign("../");</script>';
-} ?>
+	<?php
+} else {
+	header("Location: ../index.php");
+}
+?>

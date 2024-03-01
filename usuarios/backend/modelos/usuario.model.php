@@ -180,7 +180,7 @@ class UsuarioModel {
 
 
 	public function Imprimir($id) {
-		$mysqli_connection = new mysqli("localhost", "user", "", "contabilidad");
+			$this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
 		$result            = $mysqli_connection->query("SELECT * FROM usuarios WHERE id = '$id'");
 		$mysqli_connection->close();
 	}

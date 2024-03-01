@@ -7,12 +7,13 @@ $conexion = Conexion::conectar();
 class ModeloFacturas{
     static public function mdlRegistro($tabla1, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla1(fecha_registro, descripcion, num_factura, empleado_registra) VALUES(:fecha_registro, :descripcion, :num_factura, :empleado_registra)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla1(fecha_registro, descripcion, num_factura, empleado_registra, documento) VALUES(:fecha_registro, :descripcion, :num_factura, :empleado_registra, :documento)");
 
         $stmt->bindParam(':fecha_registro', $datos['fecha_registro'], PDO::PARAM_STR);
         $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
         $stmt->bindParam(':num_factura',         $datos['num_factura'], PDO::PARAM_STR);
         $stmt->bindParam(':empleado_registra', $datos['empleado_registra'], PDO::PARAM_STR);
+        $stmt->bindParam(':documento', $datos['documento'], PDO::PARAM_STR);
 
         $stmt->execute() == true;
 
@@ -41,13 +42,14 @@ class ModeloFacturas{
 
     static public function mdlActualizar($tabla1, $datos){
 
-        $stmt1 = Conexion::conectar()->prepare("UPDATE $tabla1 SET id_factura=:id_factura, fecha_registro=:fecha_registro, descripcion=:descripcion, num_factura=:num_factura, empleado_registra=:empleado_registra WHERE id_factura=:id_factura");
+        $stmt1 = Conexion::conectar()->prepare("UPDATE $tabla1 SET id_factura=:id_factura, fecha_registro=:fecha_registro, descripcion=:descripcion, num_factura=:num_factura, empleado_registra=:empleado_registra, documento=:documento WHERE id_factura=:id_factura");
 
         $stmt1->bindParam(':id_factura', $datos['id_factura'], PDO::PARAM_INT);
         $stmt1->bindParam(':fecha_registro', $datos['fecha_registro'], PDO::PARAM_STR);
         $stmt1->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
         $stmt1->bindParam(':num_factura',         $datos['num_factura'], PDO::PARAM_STR);
         $stmt1->bindParam(':empleado_registra', $datos['empleado_registra'], PDO::PARAM_STR);
+        $stmt1->bindParam(':documento', $datos['documento'], PDO::PARAM_STR);
         $stmt1->execute() == true;
         $stmt1 = null;
 

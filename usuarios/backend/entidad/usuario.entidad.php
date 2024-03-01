@@ -1,6 +1,5 @@
 <?php
-class Usuario
-{
+class Usuario {
 	//DATOS DEL USUARIO
 	private $id;
 	private $doc_identidad;
@@ -11,12 +10,15 @@ class Usuario
 	private $contrasena;
 	private $rol;
 
-	public function __GET($k){ return $this->$k; }
-	public function __SET($k, $v){ return $this->$k = $v; }
+	public function __GET($k) {
+		return $this->$k;
+	}
+	public function __SET($k, $v) {
+		return $this->$k = $v;
+	}
 }
 
-class Usuarioh
-{
+class Usuarioh {
 	//DATOS DEL USUARIO
 	private $action;
 	private $revision;
@@ -31,6 +33,10 @@ class Usuarioh
 	private $rol;
 
 
-	public function __GET($k){ return $this->$k; }
-	public function __SET($k, $v){ return $this->$k = $v; }
+	public function __GET($k) {
+		return $this->$k;
+	}
+	public function __SET($k, $v) {
+		return $this->$k = $v;
+	}
 }

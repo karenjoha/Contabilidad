@@ -35,47 +35,49 @@ if (isset($_SESSION['logged']) === FALSE) {
 	<!-- BootStrap -->
 	<link rel="stylesheet" href="vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
 	<link rel="stylesheet" href="modalFirmas/stylesMdl.css">
-<style>
-.carta {
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 10px;
-    display: flex; /* Establece el contenedor como un flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    width: 200px; /* Tamaño fijo en píxeles */
-    height: 200px; /* Tamaño fijo en píxeles */
-}
+	<style>
+		.carta {
+			background-color: #f0f0f0;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			margin: 10px;
+			display: flex;
+			/* Establece el contenedor como un flexbox */
+			justify-content: center;
+			/* Centra horizontalmente */
+			align-items: center;
+			/* Centra verticalmente */
+			width: 200px;
+			/* Tamaño fijo en píxeles */
+			height: 200px;
+			/* Tamaño fijo en píxeles */
+		}
 
-.item {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+		.item {
+			text-decoration: none;
+			color: #333;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-.item:hover {
-    background-color: #e0e0e0;
-}
+		.item:hover {
+			background-color: #e0e0e0;
+		}
 
-.item svg {
-    width: 28px;
-    height: 28px;
-}
+		.item svg {
+			width: 28px;
+			height: 28px;
+		}
 
-.item div {
-    margin-top: 6px;
-}
-
-
-
-</style>
+		.item div {
+			margin-top: 6px;
+		}
+	</style>
 </head>
 
-<body style="background-image: url('vendor/images/background-index.jpg');">
+<body style="background-color: black;">
 	<div>
 		<?php require 'nav.php'; ?>
 		<div>
@@ -101,8 +103,7 @@ if (isset($_SESSION['logged']) === FALSE) {
 								<path d="M 86.181 3.998 H 3.819 C 1.71 3.998 0 5.708 0 7.817 v 55.461 c 0 2.109 1.71 3.819 3.819 3.819 h 10.129 v 18.904 L 33.21 67.098 h 52.97 c 2.109 0 3.819 -1.71 3.819 -3.819 V 7.817 C 90 5.708 88.29 3.998 86.181 3.998 z M 45 57.998 c -3.504 0 -6.355 -2.851 -6.355 -6.355 c 0 -3.504 2.851 -6.354 6.355 -6.354 s 6.354 2.85 6.354 6.354 C 51.354 55.147 48.504 57.998 45 57.998 z M 51.354 36.582 c 0 3.504 -2.85 6.354 -6.354 6.354 s -6.355 -2.851 -6.355 -6.354 V 18.544 c 0 -2.128 1.732 -3.86 3.86 -3.86 h 4.99 c 2.128 0 3.859 1.732 3.859 3.86 V 36.582 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
 							</g>
 						</svg>
-						<br>
-						<div style="margin-bottom: 2px">FACTURAS</div>
+						<div style="margin-bottom: 2px">Comprobantes</div>
 					</a>
 				<?php } ?>
 			</div>
