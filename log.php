@@ -42,7 +42,7 @@ class LogModel {
 
     public function __CONSTRUCT() {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
+			$conn = new PDO("mysql:host=auth-db884.hstgr.io;dbname=u155011905_contabilidad", "u155011905_lmzt", "0w1A~Fuyz=H");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             die($e->getMessage());
