@@ -99,6 +99,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 					<th>ID</th>
 					<th class="responsive-hidden">FECHA REGISTRO</th>
 					<th class="responsive-hidden">NÚMERO DE <br> FACTURA </th>
+					<th class="responsive-hidden">DOCUMENTO</th>
 					<th class="responsive-hidden">DESCRIPCION</th>
 					<th class="responsive-hidden">EMPLEADO QUE REGISTRO</th>
 					<th class="responsive-hidden" class="text-center">ACCIONES</th>
@@ -139,6 +140,9 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						</td>
 						<td class="responsive-hidden">
 							<?php echo $dato['num_factura']; ?>
+						</td>
+						<td class="responsive-hidden">
+							<?php echo $dato['documento']; ?>
 						</td>
 						<td class="responsive-hidden">
 							<?php echo $dato['descripcion'] ?>

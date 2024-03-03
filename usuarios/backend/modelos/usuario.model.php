@@ -7,7 +7,7 @@ class UsuarioModel {
 
 	public function __CONSTRUCT() {
 		try {
-			$this->pdo = new PDO('mysql:host=localhost;dbname=contabilidad', 'root', '');
+			$this->pdo = new PDO('mysql:host=auth-db884.hstgr.io/;dbname=contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (Exception $e) {
 			die($e->getMessage());
@@ -180,7 +180,7 @@ class UsuarioModel {
 
 
 	public function Imprimir($id) {
-		$mysqli_connection = new mysqli("localhost", "user", "", "contabilidad");
+			$this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
 		$result            = $mysqli_connection->query("SELECT * FROM usuarios WHERE id = '$id'");
 		$mysqli_connection->close();
 	}

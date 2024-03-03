@@ -45,8 +45,6 @@ if (isset($_REQUEST['action'])) {
 			$user->__SET('email', $_REQUEST['email']);
 			$user->__SET('nombres', $_REQUEST['nombres']);
 			$user->__SET('apellidos', $_REQUEST['apellidos']);
-			$user->__SET('sede', $_REQUEST['sede']);
-			$user->__SET('num_extension', $_REQUEST['num_extension']);
 
 			$id_usuario = $_REQUEST['id'];
 
@@ -114,9 +112,6 @@ if (isset($_REQUEST['action'])) {
 			$user->__SET('apellidos', $_REQUEST['apellidos']);
 			$user->__SET('email', $_REQUEST['email']);
 			$user->__SET('usuario', $_REQUEST['usuario']);
-			$user->__SET('sede', $_REQUEST['sede']);
-			$user->__SET('num_extension', $_REQUEST['num_extension']);
-
 
 			$encriptar = $_REQUEST['contrasena'];
 			$user->__SET('contrasena', password_hash($encriptar, PASSWORD_BCRYPT, ["cost" => '11']));
