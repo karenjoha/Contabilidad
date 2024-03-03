@@ -3,45 +3,65 @@
 
 
 class UsuarioModel {
-	private $pdo;
+    private $pdo;
 
-	public function __CONSTRUCT() {
-		try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
-			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		} catch (Exception $e) {
-			die($e->getMessage());
-		}
-	}
+    public function __construct() {
+        try {
+            // Cargar las variables de entorno desde el archivo .env
+            $dotenv_path = __DIR__ . '/../../../.env';
+            $dotenv = file_get_contents($dotenv_path);
+            $dotenv_lines = explode("\n", $dotenv);
+            $env_vars = [];
 
-	public function Listar() {
-		try {
-			$result = array();
+            foreach ($dotenv_lines as $line) {
+                $line = trim($line);
+                if ($line !== '' && strpos($line, '=') !== false && strpos($line, '#') !== 0) {
+                    list($name, $value) = explode('=', $line, 2);
+                    $env_vars[$name] = $value;
+                }
+            }
 
-			$stm = $this->pdo->prepare("SELECT * FROM usuarios ORDER BY id DESC");
-			$stm->execute();
+            // Obtener las credenciales de la base de datos desde las variables de entorno
+            $host = $env_vars['DB_HOST'] ?? '';
+            $dbname = $env_vars['DB_DATABASE'] ?? '';
+            $user = $env_vars['DB_USER'] ?? '';
+            $password = $env_vars['DB_PASSWORD'] ?? '';
 
-			foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
-				$user = new Usuario();
+            // Establecer la conexión PDO utilizando las credenciales obtenidas
+            $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
-				//INFORMACION DEL USUARIO
-				$user->__SET('id', $r->id);
-				$user->__SET('doc_identidad', $r->doc_identidad);
-				$user->__SET('nombres', $r->nombres);
-				$user->__SET('apellidos', $r->apellidos);
-				$user->__SET('email', $r->email);
-				$user->__SET('usuario', $r->usuario);
-				$user->__SET('contrasena', $r->contrasena);
-				$user->__SET('rol', $r->rol);
+    public function Listar() {
+        try {
+            $result = array();
 
+            $stm = $this->pdo->prepare("SELECT * FROM usuarios ORDER BY id DESC");
+            $stm->execute();
 
-				$result[] = $user;
-			}
-			return $result;
-		} catch (Exception $e) {
-			die($e->getMessage());
-		}
-	}
+            foreach ($stm->fetchAll(PDO::FETCH_OBJ) as $r) {
+                $user = new Usuario();
+
+                //INFORMACION DEL USUARIO
+                $user->__SET('id', $r->id);
+                $user->__SET('doc_identidad', $r->doc_identidad);
+                $user->__SET('nombres', $r->nombres);
+                $user->__SET('apellidos', $r->apellidos);
+                $user->__SET('email', $r->email);
+                $user->__SET('usuario', $r->usuario);
+                $user->__SET('contrasena', $r->contrasena);
+                $user->__SET('rol', $r->rol);
+
+                $result[] = $user;
+            }
+            return $result;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
 	public function Obtener($id) {
 		try {
@@ -180,9 +200,35 @@ class UsuarioModel {
 
 
 	public function Imprimir($id) {
-			$this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
-		$result            = $mysqli_connection->query("SELECT * FROM usuarios WHERE id = '$id'");
-		$mysqli_connection->close();
+		try {
+			// Preparar la consulta para obtener los datos del usuario
+			$stm = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
+
+			// Ejecutar la consulta con el ID como parámetro
+			$stm->execute(array($id));
+
+			// Obtener el resultado de la consulta
+			$r = $stm->fetch(PDO::FETCH_OBJ);
+
+			// Crear un nuevo objeto Usuario
+			$user = new Usuario();
+
+			// Establecer los datos del usuario
+			$user->__SET('id', $r->id);
+			$user->__SET('doc_identidad', $r->doc_identidad);
+			$user->__SET('usuario', $r->usuario);
+			$user->__SET('email', $r->email);
+			$user->__SET('nombres', $r->nombres);
+			$user->__SET('apellidos', $r->apellidos);
+			$user->__SET('contrasena', $r->contrasena);
+			$user->__SET('rol', $r->rol);
+
+			// Retornar el objeto Usuario
+			return $user;
+		} catch (Exception $e) {
+			// Manejar la excepción si ocurre
+			die($e->getMessage());
+		}
 	}
 
 

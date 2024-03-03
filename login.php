@@ -1,5 +1,17 @@
 <?php
 
+// Lee el archivo .env y carga las variables de entorno
+$envFile = __DIR__ . '/.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos($line, '=') !== false) {
+            list($key, $value) = explode('=', $line, 2);
+            $_ENV[$key] = $value;
+        }
+    }
+}
+
 // Iniciamos Sesion ( si la cookie se comparte)
 session_start();
 
@@ -8,24 +20,25 @@ session_destroy();
 
 // La volvemos a iniciar en limpio
 session_start();
+
 require_once 'log.php';
+
 /*_________________________________________
   <?php if($_SESSION['rol']==1) { ?>ADMINISTRADOR<?php } ?>
  <?php if($_SESSION['rol']==2) { ?>CONTRATOS<?php } ?>
   <?php if($_SESSION['rol']==3) { ?>ASESOR<?php } ?>*/
 
-
 try {
-	$conexionPdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
-	$conexionPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexionPdo = new PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
+    $conexionPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
-	die($e->getMessage());
+    die($e->getMessage());
 }
 
 //   $conexionPdo = null;
 
-
 ?>
+
 <?php
 
 if (isset($_REQUEST['iniciar'])) {

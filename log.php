@@ -38,15 +38,28 @@ if (isset($_SESSION['usuario'])) {
 }
 
 class LogModel {
-    private $pdo;
+	private $pdo;
 
-    public function __CONSTRUCT() {
+    public function __construct() {
+        // Cargar variables de entorno desde el archivo .env
+        $envFile = __DIR__ . '/.env';
+        if (file_exists($envFile)) {
+            $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                if (strpos($line, '=') !== false) {
+                    list($key, $value) = explode('=', $line, 2);
+                    $_ENV[$key] = $value;
+                }
+            }
+        }
+
         try {
+            $connection = "mysql:host=".$_ENV['DB_HOST'].";dbname=".$_ENV['DB_DATABASE'];
 
-            $this->pdo = new PDO('mysql:host=localhost;dbname=u155011905_contabilidad', 'u155011905_lmzt', '0w1A~Fuyz=H');
+            $this->pdo = new PDO($connection, $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (Exception $e) {
-            die($e->getMessage());
+        } catch (PDOException $e) {
+            die("Error: " . $e->getMessage());
         }
     }
 

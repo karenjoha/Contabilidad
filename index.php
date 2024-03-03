@@ -43,15 +43,10 @@ if (isset($_SESSION['logged']) === FALSE) {
 			padding: 20px;
 			margin: 10px;
 			display: flex;
-			/* Establece el contenedor como un flexbox */
 			justify-content: center;
-			/* Centra horizontalmente */
 			align-items: center;
-			/* Centra verticalmente */
-			width: 200px;
-			/* Tamaño fijo en píxeles */
-			height: 200px;
-			/* Tamaño fijo en píxeles */
+			width: 10%;
+			height: 20%;
 		}
 
 		.item {
