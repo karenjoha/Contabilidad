@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/CONTABILIDAD/usuarios/shared/db.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/CONTABILIDAD/usuarios/backend/entidad/usuario.entidad.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/CONTABILIDAD/usuarios/backend/modelos/usuario.model.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/usuarios/shared/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/usuarios/backend/entidad/usuario.entidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/usuarios/backend/modelos/usuario.model.php';
 
 $user   = new Usuario();
 $modelC = new UsuarioModel();
