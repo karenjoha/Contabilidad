@@ -64,6 +64,8 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="../../../vendor/images/icon-home.png" type="image/png">
+
 		<!-- Bootstrap CSS v5.0.2 -->
 		<link rel="stylesheet" href="../../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
 		<!-- Font Raleway -->
@@ -83,18 +85,6 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 		</style>
 	</head>
 	<body>
-		<div class="loader_container">
-			<div class="loader">
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
-				<div class="four"></div>
-				<div class="five"></div>
-				<div class="six"></div>
-				<div class="seven"></div>
-				<div class="eight"></div>
-			</div>
-		</div>
 		<form id="form_facturas" method="POST">
 			<!-- ID REGISTRO -->
 			<?php if (isset($_GET['id'])) { ?>

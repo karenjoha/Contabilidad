@@ -84,6 +84,11 @@
 	}
 
 
+    .table td,
+    .table th {
+        background-color: #fff ;
+    }
+
 	.table td,
 	.table th {
 		background-color: #fff;
@@ -1725,6 +1730,7 @@ caption {
 	font-size: 12px;
 }
 
+.link { color: #3364FF; }
 .link {
 	color: #3364FF;
 }

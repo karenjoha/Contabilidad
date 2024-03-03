@@ -24,7 +24,7 @@ $url = 'http://' . $_SERVER['HTTP_HOST'] . '/contabilidad';
         </div>
     </div>
 
-    <?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2 || $_SESSION['rol'] == 4) { ?>
+    <?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 100 || $_SESSION['rol'] == 101) { ?>
         <div class="nav-box" id="nav-options">
             <div class="nav-box-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  class="bi bi-gear-fill" viewBox="0 0 16 16">

@@ -16,7 +16,7 @@ $eliminarFacturas->ctrEliminarRegistro();
 ?>
 
 <?php
-if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
+if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 	<!DOCTYPE HTML>
 	<html lang="es">
@@ -24,7 +24,9 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="descripción" content="Terminacion de contratos contabilidad">
+
 		<title>FACTURAS</title>
+	    <link rel="icon" href="../../vendor/images/icon-home.png" type="image/png">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
@@ -80,7 +82,7 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
 						<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
 					</svg>&nbsp;
-					registrar FACTURAS</a>
+					registrar factura</a>
 
 			</div>
 			<br>
@@ -157,14 +159,15 @@ if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ') { ?>
 							</li>
 						</td>
 						<!-- BOTÓN ELIMINAR -->
-						<?php if ($rol == 1) { ?>
-							<td class="responsive-hidden">
-								<form method="POST" id="delete<?php echo $dato['id_factura']; ?>">
-									<input type="hidden" value="<?php echo $dato['id_factura']; ?>" name="eliminarFacturas" id="btnDelete">
-									<button type="button" class="btn btn-primary btnEliminar">&nbsp;ELIMINAR</button>
-								</form>
-							</td>
-						<?php } ?>
+<?php if ($rol == 1) { ?>
+    <td class="responsive-hidden">
+        <form method="POST" id="delete<?php echo $dato['id_factura']; ?>">
+            <input type="hidden" value="<?php echo $dato['id_factura']; ?>" name="eliminarFacturas">
+            <button type="button" class="btn btn-primary btnEliminar" data-id-factura="<?php echo $dato['id_factura']; ?>">&nbsp;ELIMINAR</button>
+        </form>
+    </td>
+<?php } ?>
+
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

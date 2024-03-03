@@ -8,7 +8,7 @@ class DB {
     private $charset;
 
     public function __construct(){
-        $this->host = 'https://auth-db884.hstgr.io/';
+        $this->host = 'localhost';
         $this->db = 'u155011905_contabilidad';
         $this->user = 'u155011905_lmzt';
         $this->password = "0w1A~Fuyz=H";

@@ -117,28 +117,27 @@ $(document).ready(function () {
 });
 
 //Filtrar Columnas a Usuarios
-function FiltrarColumnas() {
-	// const usuarioName = document.getElementById('name-user').textContent
-	const usuarioName = document.querySelector('#nav-contabilidad div div span').textContent
-	const usuarioROL = document.getElementById('rol-user').textContent
-	parseInt(usuarioROL);
+ function FiltrarColumnas() {
+ 	// const usuarioName = document.getElementById('name-user').textContent
+ 	const usuarioName = document.querySelector('#nav-contabilidad div div span').textContent
+ 	const usuarioROL = document.getElementById('rol-user').textContent
+ 	parseInt(usuarioROL);
 
-	if (usuarioROL == 1 || usuarioROL == 27 || usuarioName.trim() == 'MANUELA MUÑOZ') {
+ 	if (usuarioROL == 1 || usuarioROL == 2 || usuarioName.trim() == 'MANUELA MUÑOZ') {
 
-	} else {
+ 	} else {
 
-		const columnas = Array.from(document.querySelectorAll('tbody tr'));
+ 		const columnas = Array.from(document.querySelectorAll('tbody tr'));
 		columnas.forEach(item => {
-			const usuariosTD = item.children[2].textContent
-
+ 			const usuariosTD = item.children[2].textContent
 			if (usuarioName != usuariosTD) {
-				item.style.display = "none";
-			}
-		});
-	};
-}
+ 				item.style.display = "none";
+ 			}
+ 		});
+ 	};
+ }
 
-$(window).on("load", FiltrarColumnas())
+$(window).on("load", FiltrarColumnas)
 
 // ALERTA BOTÓN ELIMINAR
 // Seleccionar todos los elementos con la clase "btnEliminar"
@@ -151,7 +150,7 @@ Array.from(eliminar).forEach(function (elemento) {
 
 		// Seleciona la tabla para coordinar la id del registro en base a elló
 		let tableColumns = $(this).parent().parent().prevAll()
-		let idRegistro = tableColumns[7].textContent.trim();
+		let idRegistro = tableColumns[6].textContent.trim();
 		var formDelete = document.getElementById("delete" + idRegistro);
 
 		// Mostrar la alerta de confirmación

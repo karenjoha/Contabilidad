@@ -7,7 +7,7 @@ require_once __DIR__ . '\..\..\..\vendor\autoload.php';
 
 $usuario = trim($_SESSION['usuario']);
 $rol =$_SESSION['rol'];
-if ($rol == 1 || $rol == 27 || $usuario == 'MANUELA MUÑOZ' ) {
+if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ' ) {
 
 
 date_default_timezone_set('America/Bogota');

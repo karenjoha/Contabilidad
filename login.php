@@ -74,7 +74,7 @@ if (isset($_REQUEST['iniciar'])) {
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="icon-home" type="image/png">
+	<link rel="icon" href="vendor/images/icon-home.png" type="image/png">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Iniciar Sesión</title>
 
@@ -99,8 +99,8 @@ if (isset($_REQUEST['iniciar'])) {
 			<div>
 				<form id="login-form" method="post" class="login100-form validate-form">
 					<div class="login100-form-avatar">
-<!-- 						<img src="vendor/images/icon-home.jpg" alt="contabilidad">
- -->					</div>
+						<img src="vendor/images/icon-home.jpg" alt="contabilidad">
+					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
 						Ingresa
