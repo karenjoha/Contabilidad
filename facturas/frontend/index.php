@@ -100,6 +100,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 					<th class="responsive-hidden">FECHA REGISTRO</th>
 					<th class="responsive-hidden">NÚMERO DE <br> FACTURA </th>
 					<th class="responsive-hidden">DOCUMENTO</th>
+					<th class="responsive-hidden">BANCO</th>
 					<th class="responsive-hidden">DESCRIPCION</th>
 					<th class="responsive-hidden">EMPLEADO QUE REGISTRO</th>
 					<th class="responsive-hidden" class="text-center">ACCIONES</th>
@@ -143,6 +144,9 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						</td>
 						<td class="responsive-hidden">
 							<?php echo $dato['documento']; ?>
+						</td>
+						<td class="responsive-hidden">
+							<?php echo $dato['banco']; ?>
 						</td>
 						<td class="responsive-hidden">
 							<?php echo $dato['descripcion'] ?>
@@ -198,7 +202,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<!-- Utilidades -->
 		<script src="../../vendor/js/menu_usuario.js"></script>
-		<script src="assets/js/index_factura.js?v=1.6"></script>
+		<script src="assets/js/index_factura.js?v=1.7"></script>
 	</body>
 
 	</html>

@@ -27,6 +27,7 @@ class controladorFacturas{
                 "descripcion" => $_POST["descripcion"],
                 "empleado_registra" => $_POST["empleado_registra"],
                 "documento" => $_POST["documento"],
+                "banco" => $_POST["banco"],
 
             );
 
@@ -72,6 +73,7 @@ class controladorFacturas{
                 "descripcion" => $_POST["descripcion"],
                 "empleado_registra" => $_POST["empleado_registra"],
                 "documento" => $_POST["documento"],
+                "banco" => $_POST["banco"],
 
             );
 

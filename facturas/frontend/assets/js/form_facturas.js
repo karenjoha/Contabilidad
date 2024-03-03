@@ -1,7 +1,7 @@
 let btn_enviar = document.getElementById('btn_enviar');
 let num_factura = document.getElementById('num_factura');
 let documento = document.getElementById('documento');
-
+let banco = document.getElementById('banco');
 let form_facturas = document.getElementById('form_facturas');
 let descripcion = document.getElementById('descripcion');
 let empleado_registra = document.getElementById('empleado_registra');

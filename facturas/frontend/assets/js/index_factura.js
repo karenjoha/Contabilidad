@@ -150,7 +150,7 @@ Array.from(eliminar).forEach(function (elemento) {
 
 		// Seleciona la tabla para coordinar la id del registro en base a elló
 		let tableColumns = $(this).parent().parent().prevAll()
-		let idRegistro = tableColumns[6].textContent.trim();
+		let idRegistro = tableColumns[7].textContent.trim();
 		var formDelete = document.getElementById("delete" + idRegistro);
 
 		// Mostrar la alerta de confirmación

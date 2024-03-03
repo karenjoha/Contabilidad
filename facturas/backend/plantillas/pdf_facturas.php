@@ -42,9 +42,12 @@ function getplantilla() {
       </tr>
 
       <tr>
-        <th class="info_ppal" style="text-align:center;">' . $estado_ . 'ESTADO</th><td class="text-uppercase"><span>' . $estado . '</span></td>
-        <th class="info_ppal" style="text-align:center;">' . $doc . 'DOCUMENTO</th><td><span>' . $tipo_doc . '<br>' . $identificacion . '</span></td>
+	  <th class="info_ppal" style="text-align:center;">' . $estado_ . 'ESTADO</th><td class="text-uppercase"><span>' . $estado . '</span></td>
+	  <th class="info_ppal" style="text-align:center;">' . $doc . 'DOCUMENTO</th><td><span>' . $tipo_doc . '<br>' . $identificacion . '</span></td>
       </tr>
+	  <tr>
+	  <th class="info_ppal" style="text-align:center;">' . $estado_ . 'BANCO</th><td class="text-uppercase"><span>' . $banco . '</span></td>
+	  </tr>
 
       <tr>
         <th class="info_ppal" style="text-align:center;">' . $nom . 'NOMBRES Y APELLIDOS</th><td><span>' . $nombres_apellidos . '</span></td>

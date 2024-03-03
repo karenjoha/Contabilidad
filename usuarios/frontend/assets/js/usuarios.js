@@ -259,7 +259,7 @@ togglePasswordConfirm.addEventListener("click", function () {
 
 // Borrar Usuario
 $('.tabla-containe').on('click', '.btn-eliminar', function () {
-    let idRegistro = $(this).closest('tr').find('td:eq(5)').text().trim();
+    let idRegistro = $(this).closest('tr').find('td:eq(1)').text().trim();
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

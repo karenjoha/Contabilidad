@@ -161,6 +161,23 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						</td>
 					</tr>
 					<tr>
+						<td colspan="2">
+							<div class="mb-3">
+								<label for="banco" class="form-laben">BANCO</label>
+								<select type="text" class="form-select" name="banco" id="banco" autocomplete="off">
+									<option value="<?php echo isset($listar['banco']) ? $listar['banco'] : ''; ?>" selected>
+										<?php echo isset($listar['banco']) ? $listar['banco'] : ''; ?>
+									</option>
+									<option value="BANCO BOGOTA">BANCO BOGOTA</option>
+									<option value="BANCOLOMBIA">BANCOLOMBIA</option>
+									<option value="BBVA">BBVA</option>
+									<option value="DAVIPLATA">DAVIPLATA</option>
+									<option value="NEQUI">NEQUI</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr>
 						<td colspan="1">
                             <div class="mb-3">
                                 <label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
