@@ -144,7 +144,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<td colspan="1">
 							<div class="mb-3">
                                 <label for="documento" class="form-label">DOCUMENTO</label>
-                                <input type="text" class="form-control" autocomplete="off"
+                                <input type="text" class="form-control" autocomplete="off" required
                                     <?php
                                         // Verificamos si es un nuevo registro o si el rol es 1
                                         if (!isset($_GET['id']) || $rol == 1) {
@@ -164,7 +164,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<td colspan="2">
 							<div class="mb-3">
 								<label for="banco" class="form-laben">BANCO</label>
-								<select type="text" class="form-select" name="banco" id="banco" autocomplete="off">
+								<select type="text" class="form-select" name="banco" id="banco" autocomplete="off" Required>
 									<option value="<?php echo isset($listar['banco']) ? $listar['banco'] : ''; ?>" selected>
 										<?php echo isset($listar['banco']) ? $listar['banco'] : ''; ?>
 									</option>
@@ -181,7 +181,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<td colspan="1">
                             <div class="mb-3">
                                 <label for="num_factura" class="form-label">NÚMERO DE FACTURA</label>
-                                <input type="text" class="form-control" autocomplete="off"
+                                <input type="text" class="form-control" autocomplete="off" required
                                     <?php
                                         // Verificamos si es un nuevo registro o si el rol es 1
                                         if (!isset($_GET['id']) || $rol == 1) {
@@ -212,7 +212,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 								<label for="descripcion" class="form-label">DESCRIPCION</label>
 								<textarea style="max-width: 500px;" class="form-control" name="descripcion" id="descripcion" rows="3" value="<?php if (isset($_GET['id'])) {
 									echo $listar['descripcion'];
-								} ?>"><?php if (isset($_GET['id'])) {echo $listar['descripcion'];} ?></textarea>
+								} ?>" required><?php if (isset($_GET['id'])) {echo $listar['descripcion'];} ?></textarea>
 							</div>
 						</td>
 					</tr>

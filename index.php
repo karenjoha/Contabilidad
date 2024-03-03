@@ -36,39 +36,24 @@ if (isset($_SESSION['logged']) === FALSE) {
 	<link rel="stylesheet" href="vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css">
 	<link rel="stylesheet" href="modalFirmas/stylesMdl.css">
 	<style>
-		.carta {
-			background-color: #f0f0f0;
-			border-radius: 8px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			padding: 20px;
-			margin: 10px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 10%;
-			height: 20%;
-		}
-
 		.item {
+			padding: 5rem;
+			background-color: #f0f0f0;
 			text-decoration: none;
 			color: #333;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			width: 6%;
+			height: 15%;
+			margin: 2rem;
+			border-radius: 1rem;
 		}
 
 		.item:hover {
 			background-color: #e0e0e0;
 		}
 
-		.item svg {
-			width: 28px;
-			height: 28px;
-		}
-
-		.item div {
-			margin-top: 6px;
-		}
 	</style>
 </head>
 
@@ -77,8 +62,8 @@ if (isset($_SESSION['logged']) === FALSE) {
 		<?php require_once 'nav.php'; ?>
 		<div>
             <?php if ($rol == 1 || $rol == 20 || $rol == 24) { ?>
-                <div class="archivos carta">
-                    <a class="item" href="calendario/frontend">
+                <div class="archivos">
+                    <a class="item"  href="calendario/frontend">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="27" height="27" viewBox="0 0 256 256" xml:space="preserve">
 							<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
 								<path d="M 90 66.551 c 0 1.446 -1.176 2.621 -2.621 2.621 h -1.512 V 38.681 c 0 -5.089 -4.141 -9.23 -9.23 -9.23 H 46.279 c -1.958 -0.569 -3.303 -2.343 -3.303 -4.407 c 0 -5.427 -4.415 -9.842 -9.842 -9.842 H 9.766 c 0.046 -2.286 1.912 -4.133 4.208 -4.133 h 28.918 c 2.325 0 4.216 1.891 4.216 4.217 c 0 4.801 3.27 8.897 7.951 9.962 c 0.205 0.046 0.414 0.07 0.624 0.07 h 30.711 c 1.989 0 3.606 1.617 3.606 3.605 V 66.551 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
@@ -90,7 +75,7 @@ if (isset($_SESSION['logged']) === FALSE) {
 				<?php } ?>
 			</div>
             <?php if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
-                <div class="facturas carta">
+                <div class="facturas ">
                     <a class="item" href="facturas/frontend/">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="27" height="27" viewBox="0 0 256 256" xml:space="preserve">
 							<defs></defs>
