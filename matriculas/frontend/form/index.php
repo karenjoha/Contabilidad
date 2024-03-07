@@ -33,19 +33,19 @@
 
         </div>
         <!-- FORMULARIO -->
-        <form id="form_recibimientos" method="POST" action="" >
+        <form id="form_matricula" method="POST" action="" >
 
             <!-- ID Oculto -->
             <?php if (isset($_GET["id"])) { ?>
             <!-- Obtenemos los id y los imprimimos ocultos en la vista para actualizar las respectivas tablas desde el modelo -->
-            <input type="hidden" name="id_recibimientos" value="<?php echo $listar[
-            	"id_recibimientos"
+            <input type="hidden" name="id_alumno" value="<?php echo $listar[
+            	"id_alumno"
             ]; ?>">
-            <input type="hidden" name="id_inquilino" value="<?php echo $listar[
-            	"id_inquilino"
+            <input type="hidden" name="id_matricula" value="<?php echo $listar[
+            	"id_matricula"
             ]; ?>">
-            <input type="hidden" name="id_info_adicional" value="<?php echo $listar[
-            	"id_info_adicional"
+            <input type="hidden" name="id_acudiente" value="<?php echo $listar[
+            	"id_acudiente"
             ]; ?>">
             <?php } ?>
 
@@ -125,25 +125,25 @@
                     </div>
                     <div  class="row form-control tab-item">
                             <div class="mb-3">
-                                <label for="dir_inm" class="form-label">Nombres</label>
-                                <input name="dir_inm" type="text" class="form-control" id="dir_inm" value="<?php if (
+                                <label for="nombre_alum" class="form-label">Nombres</label>
+                                <input name="nombre_alum" type="text" class="form-control" id="nombre_alum" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["dir_inm"];
+                                	echo $listar["nombre_alum"];
                                 } ?>" >
                             </div>
 
 							<div class="row">
 								<div class="col-md-6">
 									<div class="mb-3">
-										<label for="apellido1" class="form-label">Primer Apellido</label>
-										<input name="apellido1" type="text" class="form-control" id="apellido1" value="<?php if (isset($_GET["id"])) { echo $listar["apellido"]; } ?>">
+										<label for="primer_apellido" class="form-label">Primer Apellido</label>
+										<input name="primer_apellido" type="text" class="form-control" id="primer_apellido" value="<?php if (isset($_GET["id"])) { echo $listar["primer_apellido"]; } ?>">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="mb-3">
-										<label for="apellido2" class="form-label">Segundo Apellido</label>
-										<input name="apellido2" type="text" class="form-control" id="apellido2" value="<?php if (isset($_GET["id"])) { echo $listar["apellido"]; } ?>">
+										<label for="segundo_apellido" class="form-label">Segundo Apellido</label>
+										<input name="segundo_apellido" type="text" class="form-control" id="segundo_apellido" value="<?php if (isset($_GET["id"])) { echo $listar["segundo_apellido"]; } ?>">
 									</div>
 								</div>
 							</div>
@@ -151,27 +151,27 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="mb-3">
-										<label for="identificacion_tipo" class="form-label">Tipo de Identificación</label>
-										<select name="identificacion_tipo" class="form-select" id="identificacion_tipo">
-											<option value="CC" <?php if (isset($_GET["id"]) && $listar["nom_propietario"] === "CC") echo "selected"; ?>>Cédula de Ciudadanía</option>
+										<label for="tipo_documento" class="form-label">Tipo de Identificación</label>
+										<select name="tipo_documento" class="form-select" id="tipo_documento">
+											<option value="CC" <?php if (isset($_GET["id"]) && $listar["tipo_documento"] === "CC") echo "selected"; ?>>Cédula de Ciudadanía</option>
 											<!-- Otras opciones de tipo de identificación aquí -->
 										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="mb-3">
-										<label for="identificacion_numero" class="form-label">Número de Identificación</label>
-										<input name="identificacion_numero" type="text" class="form-control" id="identificacion_numero" value="<?php if (isset($_GET["id"])) echo $listar["nom_propietario"]; ?>">
+										<label for="documento" class="form-label">Número de Identificación</label>
+										<input name="documento" type="text" class="form-control" id="documento" value="<?php if (isset($_GET["id"])) echo $listar["documento"]; ?>">
 									</div>
 								</div>
 							</div>
 
                             <div class="mb-3">
-                                <label for="nom_arrendatario" class="form-label">Fecha de Naciemiento</label>
-                                <input name="nom_arrendatario" type="date" class="form-control" id="nom_arrendatario" value="<?php if (
+                                <label for="fecha_nacimiento" class="form-label">Fecha de Naciemiento</label>
+                                <input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["nom_arrendatario"];
+                                	echo $listar["fecha_nacimiento"];
                                 } ?>">
                             </div>
 							<div class="mb-3">
@@ -186,86 +186,86 @@
 								</div>
 							</div>
                             <div class="mb-3">
-                                <label for="cc_arrendatario" class="form-label">Lugar</label>
-                                <input name="cc_arrendatario" type="text" class="form-control" id="cc_arrendatario" value="<?php if (
+                                <label for="lugar_nacimiento" class="form-label">Lugar</label>
+                                <input name="lugar_nacimiento" type="text" class="form-control" id="lugar_nacimiento" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["cc_arrendatario"];
+                                	echo $listar["lugar_nacimiento"];
                                 } else {
                                 	echo "";
                                 } ?>">
                             </div>
 
                             <div class="mb-3">
-                                <label for="responsable_recibimiento" class="form-label">Nacionalidad</label>
-                                <input name="responsable_recibimiento" type="text" class="form-control" id="responsable_recibimiento" value="<?php if (
+                                <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                                <input name="nacionalidad" type="text" class="form-control" id="nacionalidad" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["responsable_recibimiento"];
+                                	echo $listar["nacionalidad"];
                                 } else {
                                 	echo $usuario;
                                 } ?>" readonly>
                             </div>
 
                             <div class="mb-3">
-                                <label for="responsable_doc" class="form-label">Direccion</label>
-                                <input type="tel" name="responsable_doc" type="text" class="form-control" id="responsable_doc" value="<?php if (
+                                <label for="direccion" class="form-label">Direccion</label>
+                                <input type="tel" name="direccion" type="text" class="form-control" id="direccion" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["responsable_doc"];
+                                	echo $listar["direccion"];
                                 } else {
                                 	echo $docUser;
                                 } ?>" readonly>
                             </div>
 
                             <div class="mb-3">
-                                <label for="quien_entrega" class="form-label">Barrio</label>
-                                <input name="quien_entrega" type="text" class="form-control" id="quien_entrega" value="<?php if (
+                                <label for="barrio" class="form-label">Barrio</label>
+                                <input name="barrio" type="text" class="form-control" id="barrio" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quien_entrega"];
+                                	echo $listar["barrio"];
                                 } ?>">
                             </div>
 							<div class="mb-3">
-                                <label for="quien_entrega" class="form-label">Estrato</label>
-                                <input name="quien_entrega" type="text" class="form-control" id="quien_entrega" value="<?php if (
+                                <label for="estrato" class="form-label">Estrato</label>
+                                <input name="estrato" type="text" class="form-control" id="estrato" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quien_entrega"];
+                                	echo $listar["estrato"];
                                 } ?>">
                             </div>
 							<div class="mb-3">
-                                <label for="quien_entrega" class="form-label">Comuna</label>
-                                <input name="quien_entrega" type="text" class="form-control" id="quien_entrega" value="<?php if (
+                                <label for="comuna" class="form-label">Comuna</label>
+                                <input name="comuna" type="text" class="form-control" id="comuna" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quien_entrega"];
+                                	echo $listar["comuna"];
                                 } ?>">
                             </div>
 
 							<div class="mb-3">
-                                <label for="quien_entrega" class="form-label">Numero #1</label>
-                                <input name="quien_entrega" type="text" class="form-control" id="quien_entrega" value="<?php if (
+                                <label for="celular" class="form-label">Numero #1</label>
+                                <input name="celular" type="text" class="form-control" id="celular" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quien_entrega"];
+                                	echo $listar["celular"];
                                 } ?>">
                             </div>
 							<div class="mb-3">
-                                <label for="quien_entrega" class="form-label">Numero #2</label>
-                                <input name="quien_entrega" type="text" class="form-control" id="quien_entrega" value="<?php if (
+                                <label for="segundo_celular" class="form-label">Numero #2</label>
+                                <input name="segundo_celular" type="text" class="form-control" id="segundo_celular" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quien_entrega"];
+                                	echo $listar["segundo_celular"];
                                 } ?>">
                             </div>
 
                             <div class="mb-3">
-                                <label for="quienEntrega_doc" class="form-label">Email</label>
-                                <input type="tel" name="quienEntrega_doc" type="email" class="form-control" id="quienEntrega_doc" value="<?php if (
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email"  class="form-control" id="email" value="<?php if (
                                 	isset($_GET["id"])
                                 ) {
-                                	echo $listar["quienEntrega_doc"];
+                                	echo $listar["email"];
                                 } ?>">
                             </div>
                         </div>
