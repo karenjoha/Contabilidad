@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/facturas/backend/conexion/conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/conexion.php';
 
 $conexion = Conexion::conectar();
 

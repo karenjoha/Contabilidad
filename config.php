@@ -1,6 +1,6 @@
 <?php
 // Define la ruta al archivo .env
-$dotenv_path = __DIR__ . '/../../.env';
+$dotenv_path = __DIR__ . '/.env';
 
 // Lee el archivo .env y parsea las variables de entorno
 $dotenv = file_get_contents($dotenv_path);
@@ -24,4 +24,3 @@ $basededatos = $env_vars['DB_DATABASE'] ?? '';
 // Realiza la conexión a la base de datos
 $con = mysqli_connect($servidor, $usuario, $password) or die("No se ha podido conectar al Servidor");
 $db = mysqli_select_db($con, $basededatos) or die("Upps! Error en conectar a la Base de Datos");
-?>

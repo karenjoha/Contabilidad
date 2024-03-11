@@ -1,42 +1,43 @@
--- Tabla para los datos del alumno
+-- Tabla datos_alumno
 CREATE TABLE datos_alumno (
-    id_alumno INT AUTO_INCREMENT PRIMARY KEY,
+    id_alumno INT(11) PRIMARY KEY AUTO_INCREMENT,
     nombre_alum VARCHAR(255) NOT NULL,
     primer_apellido VARCHAR(255) NOT NULL,
     segundo_apellido VARCHAR(255),
     tipo_documento VARCHAR(50) NOT NULL,
     documento VARCHAR(50) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
-    sexo ENUM('MASCULINO', 'FEMENINO') NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
     lugar_nacimiento VARCHAR(255),
     nacionalidad VARCHAR(255),
     direccion VARCHAR(255) NOT NULL,
     barrio VARCHAR(255),
-    estrato INT,
+    estrato INT(11),
     comuna VARCHAR(50),
     celular VARCHAR(20) NOT NULL,
     segundo_celular VARCHAR(20),
     email VARCHAR(255)
 );
 
--- Tabla para la ficha médica
-CREATE TABLE ficha_medica (
-    id_matricula INT PRIMARY KEY,
-    grupo VARCHAR(50) NOT NULL,
-    jornada VARCHAR(50) NOT NULL,
-    periodo_lectivo VARCHAR(50) NOT NULL,
-    procedencia VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_matricula) REFERENCES datos_alumno(id_alumno)
+-- Tabla datos_acudiente
+CREATE TABLE datos_acudiente (
+    id_acudiente INT(11) PRIMARY KEY AUTO_INCREMENT,
+    id_alumno INT(11),
+    nombre_acudiente VARCHAR(255),
+    celular_acudiente VARCHAR(20),
+    parentesco VARCHAR(100),
+    tipo_documento_acudiente VARCHAR(50),
+    documento_acudiente VARCHAR(50),
+    FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
 );
 
--- Tabla para los datos del acudiente
-CREATE TABLE datos_acudiente (
-    id_acudiente INT PRIMARY KEY,
-    id_alumno INT,
-    nombre_acudiente VARCHAR(255) NOT NULL,
-    celular_acudiente VARCHAR(20) NOT NULL,
-    parentezco VARCHAR(100) NOT NULL,
-    tipo_documento VARCHAR(50) NOT NULL,
-    documento VARCHAR(50) NOT NULL,
+-- Tabla ficha_medica
+CREATE TABLE ficha_medica (
+    id_ficha_medica INT(11) PRIMARY KEY AUTO_INCREMENT,
+    id_alumno INT(11),
+    grupo VARCHAR(50),
+    jornada VARCHAR(50),
+    periodo_lectivo VARCHAR(50),
+    procedencia VARCHAR(255),
     FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
 );

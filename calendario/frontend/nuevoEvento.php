@@ -3,7 +3,8 @@ date_default_timezone_set("America/Bogota");
 setlocale(LC_ALL,"es_ES");
 //$hora = date("g:i:A");
 
-require("../backend/config.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/config.php';
+
 $evento            = ucwords($_REQUEST['evento']);
 $f_inicio          = $_REQUEST['fecha_inicio'];
 $fecha_inicio      = date('Y-m-d', strtotime($f_inicio));

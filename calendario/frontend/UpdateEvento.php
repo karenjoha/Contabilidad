@@ -2,8 +2,8 @@
 date_default_timezone_set("America/Bogota");
 setlocale(LC_ALL,"es_ES");
 
-include('config.php');
-include('../backend/config.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/contabilidad/config.php';
+
 $idEvento         = $_POST['idEvento'];
 
 $evento            = ucwords($_REQUEST['evento']);

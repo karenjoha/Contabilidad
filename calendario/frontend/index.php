@@ -53,7 +53,7 @@ if ($rol != 1) {
 
 		<?php require_once '../../nav.php'; ?>
 		<?php
-		include('../backend/config.php');
+		include('../../config.php');
 
 		$SqlEventos   = ("SELECT * FROM eventoscalendar");
 		$resulEventos = mysqli_query($con, $SqlEventos);
