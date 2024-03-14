@@ -1,0 +1,136 @@
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/gestionadministrativa/conexion.php';
+
+class ModeloMatricula {
+	static public function mdlRegistro($datos_alumno, $datos_acudiente, $datos_ficha_medica) {
+		try {
+			// Preparar la consulta para insertar en la tabla de datos del alumno
+			$stmt1 = Conexion::conectar()->prepare("INSERT INTO datos_alumno (fecha_registro, nombre_alum, primer_apellido, segundo_apellido, documento, tipo_documento) VALUES (:fecha_registro, :nombre_alum, :primer_apellido, :segundo_apellido, :documento, :tipo_documento)");
+
+			// Vincular los parámetros para la tabla de datos del alumno
+			$stmt1->bindParam(':fecha_registro', $datos_alumno['fecha_registro'], PDO::PARAM_STR);
+			$stmt1->bindParam(':nombre_alum', $datos_alumno['nombre_alum'], PDO::PARAM_STR);
+			$stmt1->bindParam(':primer_apellido', $datos_alumno['primer_apellido'], PDO::PARAM_STR);
+			$stmt1->bindParam(':segundo_apellido', $datos_alumno['segundo_apellido'], PDO::PARAM_STR);
+			$stmt1->bindParam(':documento', $datos_alumno['documento'], PDO::PARAM_STR);
+			$stmt1->bindParam(':tipo_documento', $datos_alumno['tipo_documento'], PDO::PARAM_STR);
+
+			// Ejecutar la consulta para la tabla de datos del alumno
+			$stmt1->execute();
+
+			// Obtener el ID del último registro insertado en la tabla de datos del alumno
+			$last_id = Conexion::conectar()->lastInsertId();
+
+			// Preparar la consulta para insertar en la tabla de datos del acudiente
+			$stmt2 = Conexion::conectar()->prepare("INSERT INTO datos_acudiente (id_alumno, nombre_acudiente, celular_acudiente, parentesco, tipo_documento, documento) VALUES (:id_alumno, :nombre_acudiente, :celular_acudiente, :parentesco, :tipo_documento, :documento)");
+
+			// Vincular los parámetros para la tabla de datos del acudiente
+			$stmt2->bindParam(':id_alumno', $last_id, PDO::PARAM_INT);
+			$stmt2->bindParam(':nombre_acudiente', $datos_acudiente['nombre_acudiente'], PDO::PARAM_STR);
+			$stmt2->bindParam(':celular_acudiente', $datos_acudiente['celular_acudiente'], PDO::PARAM_STR);
+			$stmt2->bindParam(':parentesco', $datos_acudiente['parentesco'], PDO::PARAM_STR);
+			$stmt2->bindParam(':tipo_documento', $datos_acudiente['tipo_documento'], PDO::PARAM_STR);
+			$stmt2->bindParam(':documento', $datos_acudiente['documento'], PDO::PARAM_STR);
+
+			// Ejecutar la consulta para la tabla de datos del acudiente
+			$stmt2->execute();
+
+			// Preparar la consulta para insertar en la tabla de ficha médica
+			$stmt3 = Conexion::conectar()->prepare("INSERT INTO ficha_medica (id_alumno, grupo, jornada, periodo_lectivo, procedencia) VALUES (:id_alumno, :grupo, :jornada, :periodo_lectivo, :procedencia)");
+
+			// Vincular los parámetros para la tabla de ficha médica
+			$stmt3->bindParam(':id_alumno', $last_id, PDO::PARAM_INT);
+			$stmt3->bindParam(':grupo', $datos_ficha_medica['grupo'], PDO::PARAM_STR);
+			$stmt3->bindParam(':jornada', $datos_ficha_medica['jornada'], PDO::PARAM_STR);
+			$stmt3->bindParam(':periodo_lectivo', $datos_ficha_medica['periodo_lectivo'], PDO::PARAM_STR);
+			$stmt3->bindParam(':procedencia', $datos_ficha_medica['procedencia'], PDO::PARAM_STR);
+
+			// Ejecutar la consulta para la tabla de ficha médica
+			$stmt3->execute();
+
+			return true;
+		} catch (PDOException $e) {
+			// Manejar la excepción según sea necesario
+			return false;
+		}
+	}
+
+	static public function mdlListarRegistros($item = null, $valor = null) {
+		try {
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM datos_alumno");
+
+			// Si se especifica un filtro, agregarlo a la consulta
+			if ($item !== null && $valor !== null) {
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM datos_alumno WHERE $item = :$item");
+				$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+			}
+
+			$stmt->execute();
+
+			// Devolver los resultados de la consulta
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		} catch (PDOException $e) {
+			// Manejar la excepción según sea necesario
+			return [];
+		}
+	}
+
+	static public function mdlActualizar($datos_alumno, $datos_acudiente, $datos_ficha_medica) {
+		try {
+			// Actualizar datos del alumno
+			$stmt1 = Conexion::conectar()->prepare("UPDATE datos_alumno SET fecha_registro=:fecha_registro, nombre_alum=:nombre_alum, primer_apellido=:primer_apellido, segundo_apellido=:segundo_apellido, documento=:documento, tipo_documento=:tipo_documento WHERE id_alumno=:id_alumno");
+
+			$stmt1->bindParam(':id_alumno', $datos_alumno['id_alumno'], PDO::PARAM_INT);
+			$stmt1->bindParam(':fecha_registro', $datos_alumno['fecha_registro'], PDO::PARAM_STR);
+			$stmt1->bindParam(':nombre_alum', $datos_alumno['nombre_alum'], PDO::PARAM_STR);
+			$stmt1->bindParam(':primer_apellido', $datos_alumno['primer_apellido'], PDO::PARAM_STR);
+			$stmt1->bindParam(':segundo_apellido', $datos_alumno['segundo_apellido'], PDO::PARAM_STR);
+			$stmt1->bindParam(':documento', $datos_alumno['documento'], PDO::PARAM_STR);
+			$stmt1->bindParam(':tipo_documento', $datos_alumno['tipo_documento'], PDO::PARAM_STR);
+			$stmt1->execute();
+
+			// Actualizar datos del acudiente
+			$stmt2 = Conexion::conectar()->prepare("UPDATE datos_acudiente SET nombre_acudiente=:nombre_acudiente, celular_acudiente=:celular_acudiente, parentesco=:parentesco, tipo_documento=:tipo_documento, documento=:documento WHERE id_alumno=:id_alumno");
+
+			$stmt2->bindParam(':id_alumno', $datos_acudiente['id_alumno'], PDO::PARAM_INT);
+			$stmt2->bindParam(':nombre_acudiente', $datos_acudiente['nombre_acudiente'], PDO::PARAM_STR);
+			$stmt2->bindParam(':celular_acudiente', $datos_acudiente['celular_acudiente'], PDO::PARAM_STR);
+			$stmt2->bindParam(':parentesco', $datos_acudiente['parentesco'], PDO::PARAM_STR);
+			$stmt2->bindParam(':tipo_documento', $datos_acudiente['tipo_documento'], PDO::PARAM_STR);
+			$stmt2->bindParam(':documento', $datos_acudiente['documento'], PDO::PARAM_STR);
+			$stmt2->execute();
+
+			// Actualizar datos de la ficha médica
+			$stmt3 = Conexion::conectar()->prepare("UPDATE ficha_medica SET grupo=:grupo, jornada=:jornada, periodo_lectivo=:periodo_lectivo, procedencia=:procedencia WHERE id_alumno=:id_alumno");
+
+			$stmt3->bindParam(':id_alumno', $datos_ficha_medica['id_alumno'], PDO::PARAM_INT);
+			$stmt3->bindParam(':grupo', $datos_ficha_medica['grupo'], PDO::PARAM_STR);
+			$stmt3->bindParam(':jornada', $datos_ficha_medica['jornada'], PDO::PARAM_STR);
+			$stmt3->bindParam(':periodo_lectivo', $datos_ficha_medica['periodo_lectivo'], PDO::PARAM_STR);
+			$stmt3->bindParam(':procedencia', $datos_ficha_medica['procedencia'], PDO::PARAM_STR);
+			$stmt3->execute();
+
+			return true;
+		} catch (PDOException $e) {
+			// Manejar la excepción según sea necesario
+			return false;
+		}
+	}
+
+	static public function mdlEliminar($valor) {
+		try {
+			//INFO PRINCIPAL
+			$stmt = Conexion::conectar()->prepare("DELETE FROM datos_alumno WHERE id_alumno = :id_alumno");
+
+			$stmt->bindParam(':id_alumno', $valor, PDO::PARAM_INT);
+			$stmt->execute();
+
+			return true;
+		} catch (PDOException $e) {
+			// Manejar la excepción según sea necesario
+			return false;
+		}
+	}
+}
+?>

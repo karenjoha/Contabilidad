@@ -27,13 +27,13 @@ RewriteRule ^(.*)$ $1.html
     Deny from all
 </Files>
 
-ErrorDocument 403 /contabilidad/403.html
-ErrorDocument 404 /contabilidad/404.html
+ErrorDocument 403 /gestionadministrativa/403.html
+ErrorDocument 404 /gestionadministrativa/404.html
 
-Redirect 301 /contabilidad/cttos_section/cttos_inmueble_index.php /contabilidad/contratos/frontend/
-Redirect 301 /contabilidad/contratos/frontend/index.html /contabilidad/contratos/frontend/
-Redirect 301 /contabilidad/inventarios_section/inventario_index.php /contabilidad/inventarios/frontend/
-Redirect 301 /contabilidad/sagrilaft_section/index.php /contabilidad/sagrilaft/frontend/
+Redirect 301 /gestionadministrativa/cttos_section/cttos_inmueble_index.php /gestionadministrativa/contratos/frontend/
+Redirect 301 /gestionadministrativa/contratos/frontend/index.html /gestionadministrativa/contratos/frontend/
+Redirect 301 /gestionadministrativa/inventarios_section/inventario_index.php /gestionadministrativa/inventarios/frontend/
+Redirect 301 /gestionadministrativa/sagrilaft_section/index.php /gestionadministrativa/sagrilaft/frontend/
 
 
 

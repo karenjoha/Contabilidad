@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_SESSION['logged']) === FALSE) {
-    header("Location:  /contabilidad/login.php");
+    header("Location:  /gestionadministrativa/login.php");
     die();
 }
 ?>

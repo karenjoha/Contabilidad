@@ -11,7 +11,7 @@ session_start();
 require_once 'log.php';
 
 try {
-	$conexionPdo = new PDO('mysql:host=localhost;dbname=contabilidad', 'root', '');
+	$conexionPdo = new PDO('mysql:host=localhost;dbname=gestionadministrativa', 'root', '');
 	$conexionPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
 	die($e->getMessage());
@@ -101,7 +101,7 @@ if (isset($_REQUEST['iniciar'])) {
 			<div class="wrap-login100 p-b-30">
 				<form id="login-form" method="post" class="login100-form validate-form">
 					<div class="login100-form-avatar">
-						<img src="vendor/images/icon-home.jpg" alt="contabilidad">
+						<img src="vendor/images/icon-home.jpg" alt="gestionadministrativa">
 					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">

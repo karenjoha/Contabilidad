@@ -1,6 +1,6 @@
 [index](../README.md)
 
-# Consulta UPDATE `contabilidad`.``usuarios` en el campo doc_identidad
+# Consulta UPDATE `gestionadministrativa`.``usuarios` en el campo doc_identidad
 
 ``` sql
 -- Este comando SQL actualiza la tabla de usuarios para limpiar el campo doc_identidad

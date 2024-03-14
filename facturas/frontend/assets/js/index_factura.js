@@ -119,7 +119,7 @@ $(document).ready(function () {
 //Filtrar Columnas a Usuarios
  function FiltrarColumnas() {
  	// const usuarioName = document.getElementById('name-user').textContent
- 	const usuarioName = document.querySelector('#nav-contabilidad div div span').textContent
+ 	const usuarioName = document.querySelector('#nav-gestionadministrativa div div span').textContent
  	const usuarioROL = document.getElementById('rol-user').textContent
  	parseInt(usuarioROL);
 

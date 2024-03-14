@@ -42,7 +42,7 @@ $(window).on('load', () => {
 		$('.contenedor-forms').addClass('contenedor-forms-active')
 		window.scrollTo(0, document.body.scrollHeight);
 	} else if (valores.includes('registrar')) {
-		window.history.replaceState({}, document.title, "/" + "contabilidad/usuarios/index.php");
+		window.history.replaceState({}, document.title, "/" + "gestionadministrativa/usuarios/index.php");
 		$('.contenedor-forms').addClass('contenedor-forms-active')
 		window.scrollTo(0, document.body.scrollHeight);
 	}
@@ -51,7 +51,7 @@ $(window).on('load', () => {
 //Nuevo Usuario
 $('#add_new_user').on('click', function () {
 	if (id_usuario > 0) {
-		window.history.replaceState({}, document.title, "/" + "contabilidad/usuarios/frontend/index.php?registrar");
+		window.history.replaceState({}, document.title, "/" + "gestionadministrativa/usuarios/frontend/index.php?registrar");
 		document.location.reload(true)
 	} else {
 		$('.contenedor-forms').addClass('contenedor-forms-active')
@@ -184,7 +184,7 @@ $('#user_form').on('submit', async (event) => {
 	// Si el usuario confirma
 	if (confirm_result.isConfirmed) {
 		// Realiza una solicitud para validar el número de documento
-		const response = await fetch("/contabilidad/usuarios/backend/controladores/usuarios_controlador.php?action=validarDoc", {
+		const response = await fetch("/gestionadministrativa/usuarios/backend/controladores/usuarios_controlador.php?action=validarDoc", {
 			method: "POST",
 			body: JSON.stringify({ doc_identidad: $('#doc_identidad').val() }),
 			headers: {

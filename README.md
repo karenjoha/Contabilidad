@@ -1,5 +1,5 @@
 
-# contabilidad
+# gestionadministrativa
 
 ´´´sql´´´
 CREATE TABLE usuarios (
