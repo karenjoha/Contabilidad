@@ -178,7 +178,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
         </table>
 
 
-        <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top"><img src="assets/images/svg/arrow_up.svg" /></button>
+        <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top"><img src="../../assets/images/svg/arrow_up.png" /></button>
         </div>
         <div style="height:40px;"></div>
 
