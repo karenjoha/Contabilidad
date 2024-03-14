@@ -74,7 +74,7 @@ if (isset($_GET["id"])) {
 		<div class="nav btn-group mb-2 mt-5">
 			<a class="btn btn-primary active" aria-current="page" href="#form" data-bs-toggle="tab">INFORMACION PRINCIPAL</a>
 
-			<a class="btn btn-primary" href="#form1" data-bs-toggle="tab">FICHA MEDICA</a>
+			<a class="btn btn-primary" href="#form1" data-bs-toggle="tab">REGISTRO ACADEMICO</a>
 
 			<a class="btn btn-primary" href="#form2" data-bs-toggle="tab">ACUDIENTE</a>
 
@@ -242,7 +242,7 @@ if (isset($_GET["id"])) {
 				<div class="tab-pane" id="form1">
 					<div class="row form-control header-table">
 						<div class="col">
-							<h6>Ficha medica</h6>
+							<h6>Registro Academico</h6>
 						</div>
 					</div>
 					<div class="mb-3">
