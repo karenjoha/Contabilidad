@@ -106,13 +106,13 @@ if (isset($_REQUEST['iniciar'])) {
 
 </head>
 
-<body style="background-color:black">
+<body style="background-color:#ffffff">
     <div>
-        <div style="background-color:black">
+        <div style="background-color:#ffffff">
             <div>
                 <form id="login-form" method="post" class="login100-form validate-form">
                     <div class="login100-form-avatar">
-                        <img src="vendor/images/icon-home.jpg" alt="gestionadministrativa">
+                        <img src="vendor/images/icon-home.png" alt="gestionadministrativa">
                     </div>
 
                     <span class="login100-form-title p-t-20 p-b-45">
