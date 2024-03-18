@@ -204,7 +204,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<!-- Utilidades -->
 		<script src="../../vendor/js/menu_usuario.js"></script>
-		<script src="assets/js/index_matriculas.js?v=1"></script>
+		<script src="assets/js/index_matriculas.js?v=1.1"></script>
 	</body>
 
 	</html>

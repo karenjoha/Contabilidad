@@ -20,3 +20,9 @@ body>form>table>tfoot>tr>td>div>a {
     border-bottom-color: rgb(108 117 125 / 20%);
 }
 
+.botones{
+	background-color: blueviolet;
+	color: antiquewhite;
+	margin: 2%;
+}
+

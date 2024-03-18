@@ -197,3 +197,42 @@ botonF2.addEventListener("click", function (e) {
 	}
 	// form_matriculas.submit();
 })
+function mostrarSiguientePestana() {
+    // Obtener el índice de la pestaña activa
+    var indiceActual = $(".nav .btn.active").index();
+    var cantidadPestanas = $(".nav .btn").length;
+
+    // Cambiar a la siguiente pestaña
+    $(".nav .btn").eq(indiceActual + 1).tab("show");
+
+    // Verificar si la pestaña actual es la última
+    if (indiceActual + 1 === cantidadPestanas - 1) {
+        $("#botonContinuar").text("Guardar");
+    }
+}
+
+
+
+$(document).ready(function() {
+    // Ocultar el botón Anterior en la primera pestaña
+    if ($(".nav .btn:first-child").hasClass("active")) {
+        $("#botonAnterior").hide();
+    }
+});
+
+function mostrarPestanaAnterior() {
+    // Obtener el índice de la pestaña activa
+    var indiceActual = $(".nav .btn.active").index();
+
+    // Cambiar a la pestaña anterior si no estamos en la primera
+    if (indiceActual > 0) {
+        $(".nav .btn").eq(indiceActual - 1).tab("show");
+    }
+
+    // Mostrar el botón "Anterior" si no estamos en la primera pestaña
+    if (indiceActual !== 0) {
+        $("#botonAnterior").show();
+    } else {
+        $("#botonAnterior").hide();
+    }
+}
