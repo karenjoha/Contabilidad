@@ -31,9 +31,9 @@ CREATE TABLE datos_acudiente (
     FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
 );
 
--- Tabla ficha_medica
-CREATE TABLE ficha_medica (
-    id_ficha_medica INT(11) PRIMARY KEY AUTO_INCREMENT,
+-- Tabla registro_academico
+CREATE TABLE registro_academico (
+    id_registro_academico INT(11) PRIMARY KEY AUTO_INCREMENT,
     id_alumno INT(11),
     grupo VARCHAR(50),
     jornada VARCHAR(50),
