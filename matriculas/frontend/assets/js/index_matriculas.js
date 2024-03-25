@@ -121,82 +121,68 @@ $(document).ready(function () {
 	}
 })
 
+
 //Filtrar Columnas a Usuarios
-function FiltrarColumnas() {
-	const usuarioROL = document.getElementById("rol-user").textContent
-	parseInt(usuarioROL)
-	const usuarioName = document.getElementById("name-user").textContent
+ function FiltrarColumnas() {
+ 	// const usuarioName = document.getElementById('name-user').textContent
+ 	const usuarioName = document.querySelector('#nav-gestionadministrativa div div span').textContent
+ 	const usuarioROL = document.getElementById('rol-user').textContent
+ 	parseInt(usuarioROL);
 
-	if (
-		usuarioROL == 1 ||
-		usuarioROL == 7 ||
-		usuarioROL == 15 ||
-		usuarioROL == 16 ||
-		usuarioROL == 19 ||
-		usuarioName.trim() == "EDISSON MONTOYA" ||
-		usuarioName.trim() == "CATHERINE DIAZ"
-	) {
-	} else {
-		const usuarioName = document.querySelector(
-			"#nav-crinmo div div span",
-		).textContent
-		const columnas = Array.from(document.querySelectorAll("tbody tr"))
-		columnas.forEach((item) => {
-			const usuariosTD = item.children[2].textContent
+ 	if (usuarioROL == 1 || usuarioROL == 2 || usuarioName.trim() == 'MANUELA MUÑOZ') {
 
+ 	} else {
+
+ 		const columnas = Array.from(document.querySelectorAll('tbody tr'));
+		columnas.forEach(item => {
+ 			const usuariosTD = item.children[2].textContent
 			if (usuarioName != usuariosTD) {
-				item.style.display = "none"
-			}
-		})
-	}
-}
+ 				item.style.display = "none";
+ 			}
+ 		});
+ 	};
+ }
 
-$(window).on("load", FiltrarColumnas())
+$(window).on("load", FiltrarColumnas)
 
 // ALERTA BOTÓN ELIMINAR
 // Seleccionar todos los elementos con la clase "btnEliminar"
-var eliminar = document.getElementsByClassName("btnEliminar")
+var eliminar = document.getElementsByClassName("btnEliminar");
 
 // Recorrer todos los elementos y agregar un event listener para el clic
 Array.from(eliminar).forEach(function (elemento) {
 	elemento.addEventListener("click", function () {
 		// Seleciona la tabla para coordinar la id del registro en base a elló
 		let tableColumns = $(this).parent().parent().prevAll()
-		let idRegistro = tableColumns[7].textContent
-		var formDelete = document.getElementById(`delete${idRegistro}`)
+		let idRegistro = tableColumns[7].textContent.trim();
+		var formDelete = document.getElementById("delete" + idRegistro);
 		// Mostrar la alerta de confirmación
 		Swal.fire({
 			title: "¿Estás seguro?",
-			text: `¿Deseas eliminar el registro N°${idRegistro}?`,
+			text: `¿Deseas eliminar el registro N°${idRegistro}?"`,
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonText: "Sí",
 			cancelButtonText: "No",
 			reverseButtons: true,
 			customClass: {
-				popup: "letra-grande",
-			},
+				popup: 'letra-grande',
+			}
 		}).then((result) => {
-			// debugger;
 			// Si el usuario hizo clic en "Sí"
 			if (result.isConfirmed) {
 				// Deshabilitar el botón de eliminar para evitar envíos múltiples
-				elemento.disabled = true
+				elemento.disabled = true;
 
 				// Enviar el formulario
-				formDelete.submit()
+				formDelete.submit();
+				die();
 
 				// Recargar la página después de 1.2 segundos
-				// setTimeout(function() {
-				//   location.reload();
+				// setTimeout(function () {
+				// 	location.reload();
 				// }, 1200);
-			} else {
-				Swal.fire({
-					title: "Abortado",
-					text: "El proceso se ha interrumpido, eliminación no ejecutada.",
-					icon: "error",
-				})
 			}
-		})
-	})
-})
+		});
+	});
+});

@@ -15,6 +15,8 @@ class controladorMatriculas {
 				"segundo_apellido" => isset($_POST["segundo_apellido"]) ? $_POST["segundo_apellido"] : "",
 				"documento" => isset($_POST["documento"]) ? $_POST["documento"] : "",
 				"tipo_documento" => isset($_POST["tipo_documento"]) ? $_POST["tipo_documento"] : "",
+				"fecha_nacimiento" => isset($_POST["fecha_nacimiento"]) ? $_POST["fecha_nacimiento"] : "",
+				"sexo" => isset($_POST["sexo"]) ? $_POST["sexo"] : "",
 				"lugar_nacimiento" => isset($_POST["lugar_nacimiento"]) ? $_POST["lugar_nacimiento"] : "",
 				"nacionalidad" => isset($_POST["nacionalidad"]) ? $_POST["nacionalidad"] : "",
 				"direccion" => isset($_POST["direccion"]) ? $_POST["direccion"] : "",
@@ -78,11 +80,14 @@ class controladorMatriculas {
 			//DATOS
 			$datos     = [
 				//DATOS ALUMNO
+				"id_alumno" => $_POST["id_alumno"],
 				"fecha_registro" => $_POST["fecha_registro"],
 				"nombre_alum" => $_POST["nombre_alum"],
 				"primer_apellido" => $_POST["primer_apellido"],
 				"segundo_apellido" => $_POST["segundo_apellido"],
 				"tipo_documento" => $_POST["tipo_documento"],
+				"fecha_nacimiento"=> $_POST["fecha_nacimiento"],
+				"sexo"=> $_POST["sexo"],
 				"documento" => $_POST["documento"],
 				"lugar_nacimiento" => $_POST["lugar_nacimiento"],
 				"nacionalidad" => $_POST["nacionalidad"],
@@ -90,16 +95,23 @@ class controladorMatriculas {
 				"barrio" => $_POST["barrio"],
 				"estrato" => $_POST["estrato"],
 				"comuna" => $_POST["comuna"],
-				"celular" => $_POST["segundo_celular"],
+				"celular" => $_POST["celular"],
+				"segundo_celular"=> $_POST["segundo_celular"],
 				"email" => $_POST["email"],
 
 				//DATOS ACUDIENTE
-				"nombre_acudiente" => $_POST["nombre_acudiente"],
+				"id_acudiente" => $_POST["id_acudiente"],
+/* 				"id_alumno" => $_POST["id_alumno"],
+ */				"nombre_acudiente" => $_POST["nombre_acudiente"],
 				"celular_acudiente" => $_POST["celular_acudiente"],
 				"parentesco" => $_POST["parentesco"],
 				"tipo_documento_acudiente" => $_POST["tipo_documento_acudiente"],
 				"documento_acudiente" => $_POST["documento_acudiente"],
-				//FICHA MEDICA
+
+				//REGISTRO ACADEMICO
+				"id_registro_academico" => $_POST["id_registro_academico"],
+/* 				"id_alumno" => $_POST["id_alumno"],
+ */
 				"grupo" => $_POST["grupo"],
 				"jornada" => $_POST["jornada"],
 				"periodo_lectivo" => $_POST["periodo_lectivo"],
@@ -119,13 +131,15 @@ class controladorMatriculas {
 		$modeloMatriculas = new ModeloMatriculas();
 
 		if (isset($_POST["eliminarMatricula"])) {
+
 			//TABLAS DE LA BASE DE DATOS
 			$tabla1 = "datos_alumno";
 			$tabla2 = "datos_acudiente";
 			$tabla3 = "registro_academico";
 			$valor  = $_POST["eliminarMatricula"];
-			$valor2 = $_POST["eliminarMatricula2"];
-			$valor3 = $_POST["eliminarMatricula3"];
+        $valor2 = isset($_POST["eliminarMatricula2"]) ? $_POST["eliminarMatricula2"] : null;
+        $valor3 = isset($_POST["eliminarMatricula3"]) ? $_POST["eliminarMatricula3"] : null;
+
 
 			$respuesta = $modeloMatriculas->mdlEliminar(
 				$tabla1,

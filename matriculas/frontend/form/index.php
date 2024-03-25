@@ -154,7 +154,7 @@ if (isset($_GET["id"])) {
 					<div class="row">
 						<div class="col-md-6">
 								<label for="fecha_nacimiento" class="form-label">Fecha de Naciemiento</label>
-								<input name="fecha_nacimiento" type="text" class="form-control" id="fecha_nacimiento" value="<?php if (isset($_GET["id"])) echo $listar["fecha_nacimiento"]; ?>">
+								<input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="<?php if (isset($_GET["id"])) echo $listar["fecha_nacimiento"]; ?>">
 
 						</div>
 						<div class="col-md-6">
@@ -170,22 +170,8 @@ if (isset($_GET["id"])) {
 									<?php endforeach; ?>
 								</select>
 						</div>
-<!-- 						<div class="col-md-6">
-							<label for="sexo" class="form-label">Sexo</label>
-							<div>
-								<input type="radio" id="hombre" name="sexo" value="hombre" <?php if (isset($_GET["id"]) && $listar["sexo"] === "hombre")
-									echo "checked"; ?>>
-								<label for="hombre">Masculino</label>
-							</div>
-							<div>
-								<input type="radio" id="mujer" name="sexo" value="mujer" <?php if (isset($_GET["id"]) && $listar["sexo"] === "mujer")
-									echo "checked"; ?>>
-								<label for="mujer">Femenino</label>
-							</div>
-						</div> -->
 					</div>
 					<div class="row">
-
 						<div class="col-md-6">
 							<label for="lugar_nacimiento" class="form-label">Lugar Nacimiento</label>
 							<input name="lugar_nacimiento" type="text" class="form-control" id="lugar_nacimiento" value="<?php if (isset($_GET["id"])) {
@@ -327,7 +313,7 @@ if (isset($_GET["id"])) {
 				<div class="tab-pane" id="form2">
 					<div class="row">
 						<div class="col-md-6">
-							<label for="nombre_acudiente" class="form-label">Nombre</label>
+							<label for="nombre_acudiente" class="form-label">Nombre Acudiente</label>
 							<input type="text" name="nombre_acudiente" type="text" class="form-control" id="nombre_acudiente" value="<?php if (isset($_GET["id"])) {
 								echo $listar["nombre_acudiente"];
 							} ?>" required>

@@ -31,6 +31,7 @@ CREATE TABLE datos_acudiente (
     FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
 );
 
+
 -- Tabla registro_academico
 CREATE TABLE registro_academico (
     id_registro_academico INT(11) PRIMARY KEY AUTO_INCREMENT,
@@ -39,5 +40,46 @@ CREATE TABLE registro_academico (
     jornada VARCHAR(50),
     periodo_lectivo VARCHAR(50),
     procedencia VARCHAR(255),
+    FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
+);
+CREATE TABLE Registro_Academico (
+    id_registro_academico INT AUTO_INCREMENT PRIMARY KEY,
+    id_alumno INT,
+    grupo VARCHAR(50),
+    jornada VARCHAR(50),
+    periodo_lectivo VARCHAR(50),
+    procedencia VARCHAR(255),
+    FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
+);
+
+CREATE TABLE datos_alumno (
+    id_alumno INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_alum VARCHAR(255) NOT NULL,
+    primer_apellido VARCHAR(255) NOT NULL,
+    segundo_apellido VARCHAR(255),
+    tipo_documento VARCHAR(50) NOT NULL,
+    documento VARCHAR(50) NOT NULL,
+    fecha_nacimiento VARCHAR(15) NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
+    lugar_nacimiento VARCHAR(255),
+    nacionalidad VARCHAR(255),
+    direccion VARCHAR(255) NOT NULL,
+    barrio VARCHAR(255),
+    estrato INT,
+    comuna VARCHAR(50),
+    celular VARCHAR(20) NOT NULL,
+    segundo_celular VARCHAR(20),
+    email VARCHAR(255),
+    fecha_registro VARCHAR(11) NOT NULL
+);
+
+CREATE TABLE datos_acudiente (
+    id_acudiente INT AUTO_INCREMENT PRIMARY KEY,
+    id_alumno INT,
+    nombre_acudiente VARCHAR(255),
+    celular_acudiente VARCHAR(20),
+    parentesco VARCHAR(100),
+    tipo_documento_acudiente VARCHAR(50),
+    documento_acudiente VARCHAR(50),
     FOREIGN KEY (id_alumno) REFERENCES datos_alumno(id_alumno)
 );

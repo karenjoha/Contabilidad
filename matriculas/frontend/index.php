@@ -169,7 +169,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 						<?php if ($rol == 1) { ?>
 							<td class="responsive-hidden">
 								<form method="POST" id="delete<?php echo $dato['id_alumno']; ?>">
-									<input type="hidden" value="<?php echo $dato['id_alumno']; ?>" name="eliminarmatriculas">
+									<input type="hidden" value="<?php echo $dato['id_alumno']; ?>" name="eliminarMatricula">
 									<button type="button" class="btn btn-primary btnEliminar" data-id-matricula="<?php echo $dato['id_alumno']; ?>">&nbsp;ELIMINAR</button>
 								</form>
 							</td>
@@ -204,7 +204,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<!-- Utilidades -->
 		<script src="../../vendor/js/menu_usuario.js"></script>
-		<script src="assets/js/index_matriculas.js?v=1.1"></script>
+		<script src="assets/js/index_matriculas.js?v=1.2"></script>
 	</body>
 
 	</html>
