@@ -9,6 +9,7 @@ $roles = [
     "0" => "Desactivado",
     "1" => "Administrador",
     "2" => "Cartera",
+	"3" => "Bienestar",
 ];
 
 asort($roles);
