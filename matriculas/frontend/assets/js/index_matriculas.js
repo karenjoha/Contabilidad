@@ -129,7 +129,7 @@ $(document).ready(function () {
  	const usuarioROL = document.getElementById('rol-user').textContent
  	parseInt(usuarioROL);
 
- 	if (usuarioROL == 1 || usuarioROL == 2 || usuarioName.trim() == 'MANUELA MUÑOZ') {
+ 	if (usuarioROL == 1 || usuarioROL == 3 || usuarioName.trim() == 'MANUELA MUÑOZ') {
 
  	} else {
 

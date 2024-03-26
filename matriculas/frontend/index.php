@@ -20,7 +20,7 @@ $eliminarMatricula->ctrEliminarRegistro();
 ?>
 
 <?php
-if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
+if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 	<!DOCTYPE HTML>
 	<html lang="es">
@@ -30,10 +30,10 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 		<meta name="descripción" content="matriculas">
 
 		<title>MATRICULAS</title>
-	    <link rel="icon" href="../../vendor/images/icon-home.png" type="image/png">
+		<link rel="icon" href="../../vendor/images/icon-home.png" type="image/png">
 
 		<!-- Bootstrap CSS -->
-<!-- 		<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css"> -->
+		<!-- 		<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-5.0.2/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-3.3.6/css/bootstrap.css">
 
 		<!-- Raleway Font -->
@@ -165,6 +165,30 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 								<?php } ?>
 							</li>
 						</td>
+						<td class="responsive-hidden">
+							<li class="dropdown" style="list-style: none;">
+								<div class="dropdown">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Certificados
+									</button>
+									<div class="dropdown-menu">
+										<ul>
+											<?php if ($rol != 25) { ?>
+												<li><a class="dropdown-item" href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>">Certificado Trimestal</a></li>
+												<li><a class="dropdown-item" href="plantillas/certificadoMetropolitano.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Metropolitano</a></li>
+												<li><a class="dropdown-item" href="plantillas/certificadoMedellin.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Medellin</a></li>
+												<li><a class="dropdown-item" href="plantillas/cartaPresentacion.php?id=<?php echo $dato['id_alumno']; ?>">Carta de presentación</a></li>
+												<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Carnet</a></li>
+
+<!-- 												<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>">Carnet</a></li>
+ -->												<!-- Añade más opciones según sea necesario -->
+											<?php } ?>
+										</ul>
+									</div>
+								</div>
+							</li>
+
+						</td>
 						<!-- BOTÓN ELIMINAR -->
 						<?php if ($rol == 1) { ?>
 							<td class="responsive-hidden">
@@ -204,7 +228,7 @@ if ($rol == 1 || $rol == 2 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<!-- Utilidades -->
 		<script src="../../vendor/js/menu_usuario.js"></script>
-		<script src="assets/js/index_matriculas.js?v=1.2"></script>
+		<script src="assets/js/index_matriculas.js?v=1.3"></script>
 	</body>
 
 	</html>
