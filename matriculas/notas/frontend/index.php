@@ -10,7 +10,9 @@ $rol     = $_SESSION['rol'];
 
 require_once "../backend/controlador/controlador.php";
 require_once "../backend/modelo/modelo.php";
-$listar           = controladorCalificaciones::ctrListarRegistros(null, null);
+$listar = new controladorCalificaciones();
+$listar = $listar->ctrListarRegistros(null, null);
+// $listar           = controladorCalificaciones::ctrListarRegistros(null, null);
 $eliminarFacturas = new controladorCalificaciones;
 $eliminarFacturas->ctrEliminarRegistro();
 ?>

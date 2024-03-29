@@ -54,9 +54,10 @@ $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
 $fecha_registro          = $alumno["fecha_registro"] ?? '';
+// Obtener el nombre del mes en español
+$mes_actual = date('F'); // Obtiene el nombre del mes en inglés
+$mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en el array
 
-// Convertir la fecha de registro al formato deseado
-$fecha_registro_formateada = strftime('%e') . ' de ' . $meses[strftime('%B')] . ' de ' . strftime('%Y');
 ?>
 
 <!DOCTYPE html>
@@ -80,8 +81,9 @@ $fecha_registro_formateada = strftime('%e') . ' de ' . $meses[strftime('%B')] . 
 				<?php echo $grupo ?>
 			</strong>, los días sábados, en el horario diurno de 7:00 am a 3:00 pm.
 		</p>
-		<p>Fecha de inicio del proceso académico, <?php echo $fecha_registro_formateada; ?>.</p>
-		<p>Se expide a solicitud del interesado, a los <?php echo strftime('%e') ?> días del mes de <?php echo $meses[strftime('%B')] ?> de <?php echo strftime('%Y') ?>.</p>
+		<p>Fecha de inicio del proceso académico, <?php echo strftime('%e') ?> de <?php echo $mes_en_espanol ?> de
+            <?php echo strftime('%Y') ?>.</p>
+		<p>Se expide a solicitud del interesado, a los <?php echo strftime('%e') ?> días del mes de <?php echo $mes_en_espanol ?> de <?php echo strftime('%Y') ?>.</p>
 		<br>
 		<p><strong>Atentamente,</strong></p>
 		<img class="firma" src="../../../vendor/images/certificados/firma.png" alt="">

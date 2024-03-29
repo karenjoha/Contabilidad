@@ -14,8 +14,6 @@ require_once "../../notas/backend/controlador/controlador.php";
 $controlador_matriculas = new controladorMatriculas();
 $controlador_facturas   = new controladorCalificaciones();
 
-
-
 // Verificar si se proporcionó un ID de alumno
 if (isset($_GET["id"])) {
     $id_alumno = $_GET["id"];
@@ -75,6 +73,9 @@ switch ($_GET["trimestre"]) {
         $trimestre = "Desconocido";
 }
 
+// Obtener el nombre del mes en español
+$mes_actual = date('F'); // Obtiene el nombre del mes en inglés
+$mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en el array
 ?>
 
 <!DOCTYPE html>
@@ -174,8 +175,8 @@ switch ($_GET["trimestre"]) {
         </table>
 
         <p>Para constancia se firma el presente certificado trimestral de Educación Laboral, en la ciudad de Medellín a los días (
-            <?php echo strftime('%e') ?>) del mes de de
-            <?php echo $meses[strftime('%B')] ?>.
+            <?php echo strftime('%e') ?>) del mes de <?php echo $mes_en_espanol ?> de
+            <?php echo strftime('%Y') ?>.
         </p>
         <br>
         <p><strong>Cordialmente,</strong></p>
