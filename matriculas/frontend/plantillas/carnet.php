@@ -98,7 +98,7 @@ $edad = floor($edad_timestamp / (365 * 24 * 60 * 60)); // 365 días, 24 horas, 6
 			font-size: 16px;
 			width: 15rem;
 			position: absolute;
-			left: 20rem;
+			left: 19rem;
 			text-align: center;
 			margin-top: -8rem;
 		}

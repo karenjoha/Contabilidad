@@ -53,6 +53,7 @@ $nombre_alumno  = $alumno['nombre_alum'] ?? '';
 $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
+$ciudad          = $alumno["lugar_nacimiento"] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +72,7 @@ $grupo          = $alumno["grupo"] ?? '';
 		<p>Que, <strong>
 				<?php echo $nombre_alumno; ?>
 			</strong>, identificado con Cédula de Ciudadanía No.
-			<?php echo $documento ?><!--  --> de Ibagué - Tolima<!--  -->, culminó satisfactoriamente los requerimientos académicos en el programa Técnico Laboral en <strong>
+			<?php echo $documento ?><!--  --> de <?php echo $ciudad ?><!--  -->, culminó satisfactoriamente los requerimientos académicos en el programa Técnico Laboral en <strong>
 				<?php echo $grupo ?>
 			</strong> certificándose a los cinco<!--  --> (5) días del mes de diciembre de 2023.<!--  -->
 		</p>

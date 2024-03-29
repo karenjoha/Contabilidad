@@ -1,10 +1,10 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/gestionadministrativa/matriculas/notas/backend/modelo/modelo.php";
 
-class controladorFacturas{
+class controladorCalificaciones {
 
-    static public function ctrRegistro(){
-        if(isset($_POST['fecha_registro'])){
+    static public function ctrRegistro() {
+        if (isset($_POST['fecha_registro'])) {
 
             // // Obtener el número de factura del formulario
             // $num_factura = $_POST["num_factura"];
@@ -32,9 +32,9 @@ class controladorFacturas{
 
             );
 
-            $respuesta = ModeloFacturas::mdlRegistro($tabla1, $datos);
+            $respuesta = ModeloCalificaciones::mdlRegistro($tabla1, $datos);
 
-            echo'<script type="text/javascript">alert("Registro creado"); window.location.href="../";</script>';
+            echo '<script type="text/javascript">alert("Registro creado"); window.location.href="../";</script>';
 
             return $respuesta;
         }
@@ -43,7 +43,7 @@ class controladorFacturas{
     // static private function verificarNumeroFactura($num_factura) {
     //     // Verificar si existe una factura con el mismo número en la base de datos
     //     $tabla1 = "calificaciones";
-    //     $respuesta = ModeloFacturas::mdlListarRegistros($tabla1, "num_factura", $num_factura);
+    //     $respuesta = ModeloCalificaciones::mdlListarRegistros($tabla1, "num_factura", $num_factura);
 
     //     // Si el resultado no está vacío, significa que ya existe una factura con ese número
     //     if(!empty($respuesta)) {
@@ -53,16 +53,16 @@ class controladorFacturas{
     //     }
     // }
 
-    static public function ctrListarRegistros($item, $valor){
+    static public function ctrListarRegistros($item, $valor) {
         $tabla1 = "calificaciones";
 
-        $respuesta = ModeloFacturas::mdlListarRegistros($tabla1, $item, $valor);
+        $respuesta = ModeloCalificaciones::mdlListarRegistros($tabla1, $item, $valor);
 
         return $respuesta;
     }
 
     public function ctrActualizarRegistro() {
-        if(isset($_POST['fecha_registro'])){
+        if (isset($_POST['fecha_registro'])) {
             //TABLAS DE LA BASE DE DATOS
             $tabla1 = "calificaciones";
 
@@ -78,35 +78,35 @@ class controladorFacturas{
 
             );
 
-            $respuesta = ModeloFacturas::mdlActualizar($tabla1,$datos);
-            echo'<script type="text/javascript">alert("Registro Actualizado"); window.location.href="../";</script>';
+            $respuesta = ModeloCalificaciones::mdlActualizar($tabla1, $datos);
+            echo '<script type="text/javascript">alert("Registro Actualizado"); window.location.href="../";</script>';
 
             return $respuesta;
         }
     }
 
-    public function ctrEliminarRegistro(){
-        if(isset($_POST['eliminarCalificacion'])){
+    public function ctrEliminarRegistro() {
+        if (isset($_POST['eliminarCalificacion'])) {
             //TABLAS DE LA BASE DE DATOS
             $tabla1 = "calificaciones";
 
             $valor = $_POST['eliminarCalificacion'];
 
-            $respuesta = ModeloFacturas::mdlEliminar($tabla1, $valor);
+            $respuesta = ModeloCalificaciones::mdlEliminar($tabla1, $valor);
 
-            echo'<script type="text/javascript">alert("Registro Eliminado");</script>';
+            echo '<script type="text/javascript">alert("Registro Eliminado");</script>';
 
             return $respuesta;
 
         }
     }
 
-	static public function ctrObtenerCalificacionesPorTrimestre($id_alumno, $trimestre){
-		$tabla1 = "calificaciones";
+    static public function ctrObtenerCalificacionesPorTrimestre($id_alumno, $trimestre) {
+        $tabla1 = "calificaciones";
 
-		$respuesta = ModeloFacturas::mdlObtenerCalificacionesPorTrimestre($tabla1, $id_alumno, $trimestre);
+        $respuesta = ModeloCalificaciones::mdlObtenerCalificacionesPorTrimestre($tabla1, $id_alumno, $trimestre);
 
-		return $respuesta;
-	}
+        return $respuesta;
+    }
 
 }
