@@ -1,10 +1,10 @@
 let btn_enviar = document.getElementById('btn_enviar');
-let nombre_alum = document.getElementById('nombre_alum');
+let num_factura = document.getElementById('num_factura');
 let documento = document.getElementById('documento');
-let primer_apellido = document.getElementById('primer_apellido');
-let form_matriculas = document.getElementById('form_matriculas');
-let segundo_apellido = document.getElementById('segundo_apellido');
-let tipo_documento = document.getElementById('tipo_documento');
+let banco = document.getElementById('banco');
+let form_facturas = document.getElementById('form_facturas');
+let descripcion = document.getElementById('descripcion');
+let empleado_registra = document.getElementById('empleado_registra');
 
 btn_enviar.addEventListener('click', function(e) {
     e.preventDefault();
@@ -14,7 +14,7 @@ btn_enviar.addEventListener('click', function(e) {
         item.value = item.value.toUpperCase();
     });
 
-    if (nombre_alum.value === '') {
+    if (num_factura.value === '') {
         Swal.fire({
             title: 'Ups...',
             icon: 'warning',
@@ -34,10 +34,10 @@ btn_enviar.addEventListener('click', function(e) {
     else {
         // DESHABILITAR BOTÓN
         btn_enviar.setAttribute('disabled', 'disabled');
-die();
+
         // ENVÍO DEL FORMULARIO
         setTimeout(() => {
-            form_matriculas.submit();
+            form_facturas.submit();
         }, 1000);
     }
 });

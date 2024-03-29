@@ -64,6 +64,27 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 			.hover {
 				color: #198754 !important;
 			}
+
+			.dropdown-menu ul {
+				list-style-type: none;
+				padding-left: 0;
+				/* Esto elimina el espacio izquierdo */
+			}
+
+			.dropdown-options {
+				display: none;
+				background-color: #f9f9f9;
+				box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+				z-index: 1;
+			}
+
+			.dropdown-options a {
+				color: black;
+			}
+
+			.dropdown-options a:hover {
+				background-color: #f1f1f1;
+			}
 		</style>
 	</head>
 
@@ -107,6 +128,7 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 					<th class="responsive-hidden">CELULAR</th>
 					<th class="responsive-hidden">GRUPO</th>
 					<th class="responsive-hidden" class="text-center">ACCIONES</th>
+					<th class="responsive-hidden" class="text-center">CERTIFICADOS</th>
 					<?php if ($_SESSION['rol'] == 1) { ?>
 						<th class="responsive-hidden" class="text-center">ELIMINAR</th>
 					<?php } ?>
@@ -174,14 +196,24 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 									<div class="dropdown-menu">
 										<ul>
 											<?php if ($rol != 25) { ?>
-												<li><a class="dropdown-item" href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>">Certificado Trimestal</a></li>
+												<!-- <li><a class="dropdown-item" href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>">Certificado Trimestal</a></li> -->
+												<li><a class="dropdown-item" href="#" onclick="toggleOptions('<?php echo $dato['id_alumno']; ?>'); event.stopPropagation();">Certificado Trimestal</a></li>
+
+												<div id="dropdownOptions-<?php echo $dato['id_alumno']; ?>" class="dropdown-options">
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=1">TRIMESTRE 1</a>
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=2">TRIMESTRE 2</a>
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=3">TRIMESTRE 3</a>
+													<!-- Añade más opciones según sea necesario -->
+												</div>
+												<!-- Botón o enlace para abrir el modal -->
+												<!-- <li><a class="dropdown-item" href="form/modal.php?id=<?php echo $dato['id_alumno']; ?>">Certificado Trimestal</a></li> -->
+												<li><a class="dropdown-item" href="../notas/frontend/formulario/index.php?id=<?php echo $dato['id_alumno']; ?>">Agregar Notas</a></li>
 												<li><a class="dropdown-item" href="plantillas/certificadoMetropolitano.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Metropolitano</a></li>
 												<li><a class="dropdown-item" href="plantillas/certificadoMedellin.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Medellin</a></li>
 												<li><a class="dropdown-item" href="plantillas/cartaPresentacion.php?id=<?php echo $dato['id_alumno']; ?>">Carta de presentación</a></li>
 												<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Carnet</a></li>
 
-<!-- 												<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>">Carnet</a></li>
- -->												<!-- Añade más opciones según sea necesario -->
+												<!--<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>">Carnet</a></li>--> <!-- Añade más opciones según sea necesario -->
 											<?php } ?>
 										</ul>
 									</div>
@@ -207,9 +239,6 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top"><img src="assets/images/svg/arrow_up.svg" /></button>
 		</div>
-		<div style="height:40px;"></div>
-
-		<!-- Dependencias -->
 
 		<!-- JQuery -->
 		<script src="../../vendor/jquery/jquery-3.6.0.min.js"></script>
@@ -228,7 +257,18 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 
 		<!-- Utilidades -->
 		<script src="../../vendor/js/menu_usuario.js"></script>
-		<script src="assets/js/index_matriculas.js?v=1.3"></script>
+		<script src="assets/js/index_matriculas.js?v=1.4"></script>
+		<script>
+			function toggleOptions(idAlumno) {
+				var options = document.getElementById("dropdownOptions-" + idAlumno);
+				if (options.style.display === "block") {
+					options.style.display = "none";
+				} else {
+					options.style.display = "block";
+				}
+			}
+
+		</script>
 	</body>
 
 	</html>

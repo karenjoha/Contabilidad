@@ -19,7 +19,7 @@ if (isset ($_SESSION['logged']) === FALSE) {
 
 <!DOCTYPE html>
 <html lang="es">
-<title>GESTION ADMINISTRATIVA</title>
+<title>Gestión Administrativa</title>
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">

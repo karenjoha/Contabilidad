@@ -53,6 +53,10 @@ $nombre_alumno  = $alumno['nombre_alum'] ?? '';
 $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
+$fecha_registro          = $alumno["fecha_registro"] ?? '';
+
+// Convertir la fecha de registro al formato deseado
+$fecha_registro_formateada = strftime('%e') . ' de ' . $meses[strftime('%B')] . ' de ' . strftime('%Y');
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +70,7 @@ $grupo          = $alumno["grupo"] ?? '';
 </head>
 
 <body>
-	<img class="head_image" src="fondo_certificado_head.jpg" alt="">
+	<img class="head_image" src="../../../vendor/images/certificados/fondo_certificado_head.jpg" alt="">
 	<div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
 		<p><strong>HACE CONSTAR</strong></p>
 		<p>Que, <strong>
@@ -76,15 +80,15 @@ $grupo          = $alumno["grupo"] ?? '';
 				<?php echo $grupo ?>
 			</strong>, los días sábados, en el horario diurno de 7:00 am a 3:00 pm.
 		</p>
-		<p>Fecha de inicio del proceso académico, <!--  -->el primero (1) de abril de 2023<!--  -->.</p>
+		<p>Fecha de inicio del proceso académico, <?php echo $fecha_registro_formateada; ?>.</p>
 		<p>Se expide a solicitud del interesado, a los <?php echo strftime('%e') ?> días del mes de <?php echo $meses[strftime('%B')] ?> de <?php echo strftime('%Y') ?>.</p>
 		<br>
 		<p><strong>Atentamente,</strong></p>
-		<img class="firma" src="firma.png" alt="">
+		<img class="firma" src="../../../vendor/images/certificados/firma.png" alt="">
 		<p><br><br><br></p>
 		<p><strong>ADRIANA MARIA ZAPATA MARTINEZ</strong><br>Admisiones y Registro<br>EME/245034</p>
 	</div>
-	<img class="pie_image" src="fondo_certificado_pie.jpg" alt="">
+	<img class="pie_image" src="../../../vendor/images/certificados/fondo_certificado_pie.jpg" alt="">
 </body>
 
 </html>

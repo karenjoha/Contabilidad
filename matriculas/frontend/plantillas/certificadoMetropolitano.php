@@ -65,7 +65,7 @@ $grupo          = $alumno["grupo"] ?? '';
 </head>
 
 <body>
-	<img class="head_image" src="fondo_certificado_head.jpg" alt="">
+	<img class="head_image" src="../../../vendor/images/certificados/fondo_certificado_head.jpg" alt="">
 	<div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
 		<p><strong>HACE CONSTAR</strong></p>
 		<p>Que, <strong>
@@ -82,12 +82,12 @@ $grupo          = $alumno["grupo"] ?? '';
 		</p>
 		<br>
 		<p><strong>Atentamente,</strong></p>
-		<img class="firma" src="firma_jimena.png" alt="">
+		<img class="firma" src="../../../vendor/images/certificados/firma_jimena.png" alt="">
 		<p><br><br><br></p>
 		<p><strong>JIMENA FLOREZ MORENO</strong><br>Secretaria Académica</p>
 
 	</div>
-	<img class="pie_image" src="fondo_certificado_pie.jpg" alt="">
+	<img class="pie_image" src="../../../vendor/images/certificados/fondo_certificado_pie.jpg" alt="">
 
 </body>
 

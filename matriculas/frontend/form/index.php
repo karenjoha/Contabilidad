@@ -53,6 +53,8 @@ if (isset($_GET["id"])) {
 	//Metodo estatico, permite reutilizar los datos
 	$registro = $controlador_matriculas->ctrRegistro();
 }
+
+if ($rol == 1 || $rol == 3){
 ?>
 <html lang="es">
 
@@ -76,14 +78,15 @@ if (isset($_GET["id"])) {
 
 
 		<!-- HEADER TAB BUTTONS -->
-		<div class="nav btn-group mb-2 mt-5" <?php if (!isset($_GET["id"])) echo 'style="display: none;"'; ?>>
+		<div class="nav btn-group mb-2 mt-5" <?php if (!isset($_GET["id"]))
+			echo 'style="display: none;"'; ?>>
 			<a class="btn btn-primary active" aria-current="page" href="#form" data-bs-toggle="tab">INFORMACION PRINCIPAL</a>
 			<a class="btn btn-primary" href="#form1" data-bs-toggle="tab">REGISTRO ACADEMICO</a>
 			<a class="btn btn-primary" href="#form2" data-bs-toggle="tab">ACUDIENTE</a>
 		</div>
 
 		<!-- FORMULARIO -->
-		<form id="form_matricula" method="POST" action="">
+		<form id="form_matricula" method="POST" action="" enctype="multipart/form-data">
 
 			<!-- ID Oculto -->
 			<?php if (isset($_GET["id"])) { ?>
@@ -111,67 +114,67 @@ if (isset($_GET["id"])) {
 						} ?>" />
 					</div>
 
-					<div class="mb-3">
-						<label for="nombre_alum" class="form-label">Nombres</label>
-						<input name="nombre_alum" type="text" class="form-control" id="nombre_alum" value="<?php if (isset($_GET["id"])) {
-							echo $listar["nombre_alum"];
-						} ?>" required>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
-								<label for="primer_apellido" class="form-label">Primer Apellido</label>
-								<input name="primer_apellido" type="text" class="form-control" id="primer_apellido" value="<?php if (isset($_GET["id"])) {
-									echo $listar["primer_apellido"];
-								} ?>" required>
+							<label for="nombre_alum" class="form-label">Nombres</label>
+							<input name="nombre_alum" type="text" class="form-control" id="nombre_alum" value="<?php if (isset($_GET["id"])) {
+								echo $listar["nombre_alum"];
+							} ?>" required>
 						</div>
 						<div class="col-md-6">
-								<label for="segundo_apellido" class="form-label">Segundo Apellido</label>
-								<input name="segundo_apellido" type="text" class="form-control" id="segundo_apellido" value="<?php if (isset($_GET["id"])) {
-									echo $listar["segundo_apellido"];
-								} ?>" required>
+							<label for="primer_apellido" class="form-label">Primer Apellido</label>
+							<input name="primer_apellido" type="text" class="form-control" id="primer_apellido" value="<?php if (isset($_GET["id"])) {
+								echo $listar["primer_apellido"];
+							} ?>" required>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-								<label for="tipo_documento" class="form-label">Tipo de Identificación</label>
-								<select name="tipo_documento" class="form-select" id="tipo_documento" required>
-                                    <option value="<?php echo isset($listar['tipo_documento']) ? $listar['tipo_documento'] : ''; ?>" selected>
-                                        <?php echo isset($listar['tipo_documento']) ? $listar['tipo_documento'] : ''; ?>
-                                    </option>
-									<?php foreach ($tipo_doc as $tipo_docs): ?>
-										<option value="<?= $tipo_docs ?>">
-											<?= $tipo_docs ?>
-										</option>
-									<?php endforeach; ?>
-								</select>
+							<label for="segundo_apellido" class="form-label">Segundo Apellido</label>
+							<input name="segundo_apellido" type="text" class="form-control" id="segundo_apellido" value="<?php if (isset($_GET["id"])) {
+								echo $listar["segundo_apellido"];
+							} ?>" required>
 						</div>
 						<div class="col-md-6">
-								<label for="documento" class="form-label">Número de Identificación</label>
-								<input name="documento" type="text" class="form-control" id="documento" value="<?php if (isset($_GET["id"]))
-									echo $listar["documento"]; ?>" required>
+							<label for="tipo_documento" class="form-label">Tipo de Identificación</label>
+							<select name="tipo_documento" class="form-select" id="tipo_documento" required>
+								<option value="<?php echo isset($listar['tipo_documento']) ? $listar['tipo_documento'] : ''; ?>" selected>
+									<?php echo isset($listar['tipo_documento']) ? $listar['tipo_documento'] : ''; ?>
+								</option>
+								<?php foreach ($tipo_doc as $tipo_docs): ?>
+									<option value="<?= $tipo_docs ?>">
+										<?= $tipo_docs ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-								<label for="fecha_nacimiento" class="form-label">Fecha de Naciemiento</label>
-								<input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="<?php if (isset($_GET["id"])) echo $listar["fecha_nacimiento"]; ?>">
-
+							<label for="documento" class="form-label">Número de Identificación</label>
+							<input name="documento" type="text" class="form-control" id="documento" value="<?php if (isset($_GET["id"]))
+								echo $listar["documento"]; ?>" required>
 						</div>
 						<div class="col-md-6">
-								<label for="sexo" class="form-label">Sexo</label>
-								<select name="sexo" class="form-select" id="sexo" required>
-                                    <option value="<?php echo isset($listar['sexo']) ? $listar['sexo'] : ''; ?>" selected>
-                                        <?php echo isset($listar['sexo']) ? $listar['sexo'] : ''; ?>
-                                    </option>
-									<?php foreach ($sexo as $sexo): ?>
-										<option value="<?= $sexo ?>">
-											<?= $sexo ?>
-										</option>
-									<?php endforeach; ?>
-								</select>
+							<label for="fecha_nacimiento" class="form-label">Fecha de Naciemiento</label>
+							<input name="fecha_nacimiento" type="date" class="form-control" id="fecha_nacimiento" value="<?php if (isset($_GET["id"]))
+								echo $listar["fecha_nacimiento"]; ?>">
 						</div>
 					</div>
 					<div class="row">
+						<div class="col-md-6">
+							<label for="sexo" class="form-label">Sexo</label>
+							<select name="sexo" class="form-select" id="sexo" required>
+								<option value="<?php echo isset($listar['sexo']) ? $listar['sexo'] : ''; ?>" selected>
+									<?php echo isset($listar['sexo']) ? $listar['sexo'] : ''; ?>
+								</option>
+								<?php foreach ($sexo as $sexo): ?>
+									<option value="<?= $sexo ?>">
+										<?= $sexo ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
 						<div class="col-md-6">
 							<label for="lugar_nacimiento" class="form-label">Lugar Nacimiento</label>
 							<input name="lugar_nacimiento" type="text" class="form-control" id="lugar_nacimiento" value="<?php if (isset($_GET["id"])) {
@@ -188,6 +191,19 @@ if (isset($_GET["id"])) {
 								echo "";
 							} ?>" required>
 						</div>
+						<div class="col-md-6">
+							<label for="rh" class="form-label">Tipo de Sangre</label>
+							<select name="rh" class="form-select" id="rh" required>
+								<option value="<?php echo isset($listar['rh']) ? $listar['rh'] : ''; ?>" selected>
+									<?php echo isset($listar['rh']) ? $listar['rh'] : ''; ?>
+								</option>
+								<?php foreach ($rh as $rh): ?>
+									<option value="<?= $rh ?>">
+										<?= $rh ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
@@ -199,25 +215,22 @@ if (isset($_GET["id"])) {
 							} ?>" required>
 						</div>
 						<div class="col-md-6">
-							<label for="barrio" class="form-label">Barrio</label>
-							<input name="barrio" type="text" class="form-control" id="barrio" value="<?php if (isset($_GET["id"])) {echo $listar["barrio"];
+							<label for="ciudad" class="form-label">Ciudad o Municipio</label>
+							<input type="tel" name="ciudad" type="text" class="form-control" id="ciudad" value="<?php if (isset($_GET["id"])) {
+								echo $listar["ciudad"];
+							} else {
+								echo "";
 							} ?>" required>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<label for="estrato" class="form-label">Estrato</label>
-							<select name="estrato" class="form-select" id="estrarto" required>
-                                    <option value="<?php echo isset($listar['estrato']) ? $listar['estrato'] : ''; ?>" selected>
-                                        <?php echo isset($listar['estrato']) ? $listar['estrato'] : ''; ?>
-                                    </option>
-									<?php foreach ($estrato as $estratos): ?>
-									<option value="<?= $estratos ?>">
-										<?= $estratos ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
+							<label for="barrio" class="form-label">Barrio</label>
+							<input name="barrio" type="text" class="form-control" id="barrio" value="<?php if (isset($_GET["id"])) {
+								echo $listar["barrio"];
+							} ?>" required>
 						</div>
+
 						<div class="col-md-6">
 							<label for="comuna" class="form-label">Comuna</label>
 							<input name="comuna" type="text" class="form-control" id="comuna" value="<?php if (isset($_GET["id"])) {
@@ -227,23 +240,54 @@ if (isset($_GET["id"])) {
 					</div>
 					<div class="row">
 						<div class="col-md-6">
+							<label for="estrato" class="form-label">Estrato</label>
+							<select name="estrato" class="form-select" id="estrarto" required>
+								<option value="<?php echo isset($listar['estrato']) ? $listar['estrato'] : ''; ?>" selected>
+									<?php echo isset($listar['estrato']) ? $listar['estrato'] : ''; ?>
+								</option>
+								<?php foreach ($estrato as $estratos): ?>
+									<option value="<?= $estratos ?>">
+										<?= $estratos ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="col-md-6">
 							<label for="celular" class="form-label">Numero #1</label>
 							<input name="celular" type="text" class="form-control" id="celular" value="<?php if (isset($_GET["id"])) {
 								echo $listar["celular"];
 							} ?>" required>
 						</div>
+					</div>
+					<div class="row">
+
 						<div class="col-md-6">
 							<label for="segundo_celular" class="form-label">Numero #2</label>
 							<input name="segundo_celular" type="text" class="form-control" id="segundo_celular" value="<?php if (isset($_GET["id"])) {
 								echo $listar["segundo_celular"];
 							} ?>">
 						</div>
+						<div class="col-md-6">
+							<label for="email" class="form-label">Email</label>
+							<input type="email" name="email" class="form-control" id="email" value="<?php if (isset($_GET["id"])) {
+								echo $listar["email"];
+							} ?>" required>
+						</div>
+
 					</div>
 					<div class="mb-3">
-						<label for="email" class="form-label">Email</label>
-						<input type="email" name="email" class="form-control" id="email" value="<?php if (isset($_GET["id"])) {
-							echo $listar["email"];
-						} ?>"required>
+						<label for="file" class="form-label">FOTO DEL ALUMNO</label>
+						<input name="file" type="file" accept="image/*" class="form-control" id="file" onchange="previewImage(event)">
+						<?php
+						// Verifica si estás en modo de actualización y si hay una imagen asociada al registro
+						if (isset($_GET["id"]) && isset($listar["file"]) && !empty($listar["file"])) {
+							// Muestra la vista previa de la imagen asociada
+							echo '<img id="preview" src="' . $listar["file"] . '" alt="Vista previa de la imagen" style="max-width: 100px; max-height: 100px;">';
+						} else {
+							// Muestra un espacio para la vista previa de la imagen
+							echo '<img id="preview" src="#" alt="Vista previa de la imagen" style="display: none; max-width: 100px; max-height: 100px;">';
+						}
+						?>
 					</div>
 				</div>
 				<!-- registro Academico -->
@@ -255,10 +299,10 @@ if (isset($_GET["id"])) {
 							<select type="select" name="grupo" type="text" class="form-control" id="grupo" value="<?php if (isset($_GET["id"])) {
 								echo $listar["grupo"];
 							} ?>" required>
-                                    <option value="<?php echo isset($listar['grupo']) ? $listar['grupo'] : ''; ?>" selected>
-                                        <?php echo isset($listar['grupo']) ? $listar['grupo'] : ''; ?>
-                                    </option>
-									<?php foreach ($grupos as $grupos): ?>
+								<option value="<?php echo isset($listar['grupo']) ? $listar['grupo'] : ''; ?>" selected>
+									<?php echo isset($listar['grupo']) ? $listar['grupo'] : ''; ?>
+								</option>
+								<?php foreach ($grupos as $grupos): ?>
 									<option value="<?= $grupos ?>">
 										<?= $grupos ?>
 									</option>
@@ -272,10 +316,10 @@ if (isset($_GET["id"])) {
 							) {
 								echo $listar["jornada"];
 							} ?>" required>
-                                    <option value="<?php echo isset($listar['jornada']) ? $listar['jornada'] : ''; ?>" selected>
-                                        <?php echo isset($listar['jornada']) ? $listar['jornada'] : ''; ?>
-                                    </option>
-									<?php foreach ($jornada as $jornada): ?>
+								<option value="<?php echo isset($listar['jornada']) ? $listar['jornada'] : ''; ?>" selected>
+									<?php echo isset($listar['jornada']) ? $listar['jornada'] : ''; ?>
+								</option>
+								<?php foreach ($jornada as $jornada): ?>
 									<option value="<?= $jornada ?>">
 										<?= $jornada ?>
 									</option>
@@ -291,10 +335,10 @@ if (isset($_GET["id"])) {
 							) {
 								echo $listar["periodo_lectivo"];
 							} ?>" required>
-                                    <option value="<?php echo isset($listar['periodo_lectivo']) ? $listar['periodo_lectivo'] : ''; ?>" selected>
-                                        <?php echo isset($listar['periodo_lectivo']) ? $listar['periodo_lectivo'] : ''; ?>
-                                    </option>
-									<?php foreach ($periodo_lectivo as $periodo_lectivo): ?>
+								<option value="<?php echo isset($listar['periodo_lectivo']) ? $listar['periodo_lectivo'] : ''; ?>" selected>
+									<?php echo isset($listar['periodo_lectivo']) ? $listar['periodo_lectivo'] : ''; ?>
+								</option>
+								<?php foreach ($periodo_lectivo as $periodo_lectivo): ?>
 									<option value="<?= $periodo_lectivo ?>">
 										<?= $periodo_lectivo ?>
 									</option>
@@ -335,27 +379,28 @@ if (isset($_GET["id"])) {
 						<div class="col-md-6">
 							<label for="tipo_documento_acudiente" class="form-label">Tipo de Identificación</label>
 							<select name="tipo_documento_acudiente" class="form-select" id="tipo_documento_acudiente" required>
-                                    <option value="<?php echo isset($listar['tipo_documento_acudiente']) ? $listar['tipo_documento_acudiente'] : ''; ?>" selected>
-                                        <?php echo isset($listar['tipo_documento_acudiente']) ? $listar['tipo_documento_acudiente'] : ''; ?>
-                                    </option>
-									<?php foreach ($tipo_doc as $tipo_docs): ?>
-										<option value="<?= $tipo_docs ?>">
-											<?= $tipo_docs ?>
-										</option>
-									<?php endforeach; ?>
+								<option value="<?php echo isset($listar['tipo_documento_acudiente']) ? $listar['tipo_documento_acudiente'] : ''; ?>" selected>
+									<?php echo isset($listar['tipo_documento_acudiente']) ? $listar['tipo_documento_acudiente'] : ''; ?>
+								</option>
+								<?php foreach ($tipo_doc as $tipo_docs): ?>
+									<option value="<?= $tipo_docs ?>">
+										<?= $tipo_docs ?>
+									</option>
+								<?php endforeach; ?>
 							</select>
 						</div>
 					</div>
-						<div class="mb-3">
-							<label for="documento_acudiente" class="form-label">Número de Identificación</label>
-							<input name="documento_acudiente" type="text" class="form-control" id="documento_acudiente" value="<?php if (isset($_GET["id"]))
-								echo $listar["documento"]; ?>" required>
-						</div>
+					<div class="mb-3">
+						<label for="documento_acudiente" class="form-label">Número de Identificación</label>
+						<input name="documento_acudiente" type="text" class="form-control" id="documento_acudiente" value="<?php if (isset($_GET["id"]))
+							echo $listar["documento"]; ?>" required>
+					</div>
 				</div>
-					<div class="d-flex justify-content-center">
-					<button id="botonAnterior" class="btn botones" onclick="mostrarPestanaAnterior()">< Regresar</button>
-					<button id="botonContinuar" class="btn botones" onclick="mostrarSiguientePestana()">Continuar ></button>
-<!-- 										<button id="botonF2" type="submit" class="btn btn-primary">
+				<div class="d-flex justify-content-center">
+					<button id="botonAnterior" class="btn botones" onclick="mostrarPestanaAnterior()">
+						< Regresar</button>
+							<button id="botonContinuar" class="btn botones" onclick="mostrarSiguientePestana()">Continuar ></button>
+							<!-- 										<button id="botonF2" type="submit" class="btn btn-primary">
 						<?php if (isset($_GET['id'])) {
 							echo "ACTUALIZAR REGISTRO";
 						} else {
@@ -370,7 +415,7 @@ if (isset($_GET["id"])) {
 	<script src="../../../vendor/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
 	<script src="../../../vendor/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 	<script src="../../../vendor/jquery/jquery-3.6.0.min.js"></script>
-	<script src="../assets/js/matriculas.js?v=3.3"></script>
+	<script src="../assets/js/matriculas.js?v=3.4"></script>
 
 	<!-- SweetAlert -->
 	<script src="../../../vendor/sweet_alert/sweetalert2.all.min.js"></script>
@@ -378,3 +423,8 @@ if (isset($_GET["id"])) {
 </body>
 
 </html>
+<?php
+} else {
+	header("Location: ../index.php");
+}
+?>

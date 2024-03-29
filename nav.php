@@ -40,6 +40,7 @@ $url = 'http://' . $_SERVER['HTTP_HOST'] . '/gestionadministrativa';
                     <li><a href="<?php echo $url ?>/calendario/frontend/">CALENDARIO</a></li>
                     <li><a href="<?php echo $url ?>/facturas/frontend/">FACTURAS</a></li>
                     <li><a href="<?php echo $url ?>/usuarios/frontend/">USUARIOS</a></li>
+                    <li><a href="<?php echo $url ?>/matriculas/frontend/">MATRICULAS</a></li>
 
                 <?php } ?>
             </ul>

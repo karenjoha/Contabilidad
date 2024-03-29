@@ -90,7 +90,7 @@ $grupo          = $alumno["grupo"] ?? '';
 </head>
 
 <body>
-	<img class="head_image" src="fondo_certificado_head.jpg" alt="">
+	<img class="head_image" src="../../../vendor/images/certificados/fondo_certificado_head.jpg" alt="">
 	<div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
 		<p>Medellín,
 			<?php echo str_replace(array_keys($meses), array_values($meses), strftime('%d de %B de %Y')); ?>
@@ -110,13 +110,13 @@ $grupo          = $alumno["grupo"] ?? '';
 		</p>
 		<p>Quedamos atentos a cualquier información adicional.</p>
 		<p><strong>Atentamente,</strong></p>
-		<img class="firma" src="firma.png" alt="">
+		<img class="firma" src="../../../vendor/images/certificados/firma.png" alt="">
 		<p><br><br><br></p>
 		<p><strong>ADRIANA MARÍA ZAPATA MARTINEZ</strong>
 			<br> Secretaria Académica
 		</p>
 	</div>
-	<img class="pie_image" src="fondo_certificado_pie.jpg" alt="">
+	<img class="pie_image" src="../../../vendor/images/certificados/fondo_certificado_pie.jpg" alt="">
 </body>
 
 </html>

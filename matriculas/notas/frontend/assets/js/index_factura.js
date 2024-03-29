@@ -1,126 +1,120 @@
 // Añadir a General ->
-$(window).on("load", function () {
+$(window).on('load', function () {
 	// Animate loader off screen
-	$(".loader").fadeOut("slow")
-	$(".loader_container").fadeOut("slow")
-})
+	$(".loader").fadeOut("slow");
+	$(".loader_container").fadeOut("slow");
 
-// Implementación de seguridad para los filtros avanzados
-let input_text = document.querySelectorAll('input[type="text"]')
-
-input_text.forEach(function (e) {
-	e.addEventListener("input", function () {
-		e.value = e.value.replace(/[^\w\sñÑ]/gi, "")
-	})
-})
+});
 
 //-Back To Top-//
 //Get the button
-let mybutto = document.getElementById("btn-back-to-top")
+let mybutto = document.getElementById("btn-back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
-	scrollFunction()
-}
+	scrollFunction();
+};
 
 function scrollFunction() {
 	if (
 		document.body.scrollTop > 20 ||
 		document.documentElement.scrollTop > 20
 	) {
-		mybutto.style.display = "flex"
+		mybutto.style.display = "flex";
 	} else {
-		mybutto.style.display = "none"
+		mybutto.style.display = "none";
 	}
 }
 // When the user clicks on the button, scroll to the top of the document
-mybutto.addEventListener("click", backToTop)
+mybutto.addEventListener("click", backToTop);
 
 function backToTop() {
-	document.body.scrollTop = 0
-	document.documentElement.scrollTop = 0
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
 }
 
 // Datatable CONFIG
 $(document).ready(function () {
-	var table = $("#regTable").DataTable({
-		language: {
-			decimal: ",",
-			thousands: ".",
-			info: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-			infoEmpty:
-				"Mostrando registros del 0 al 0 de un total de 0 registros",
-			infoPostFix: "",
-			infoFiltered: "(filtrado de un total de _MAX_ registros)",
-			loadingRecords: "Cargando...",
-			lengthMenu: "Mostrar _MENU_ registros",
-			paginate: {
-				first: "Primero",
-				last: "Último",
-				next: "Siguiente",
-				previous: "Anterior",
+	var table = $('#terminacion_contratos_table').DataTable({
+		"language": {
+			"decimal": ",",
+			"thousands": ".",
+			"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"infoPostFix": "",
+			"infoFiltered": "(filtrado de un total de _MAX_ registros)",
+			"loadingRecords": "Cargando...",
+			"lengthMenu": "Mostrar _MENU_ registros",
+			"paginate": {
+				"first": "Primero",
+				"last": "Último",
+				"next": "Siguiente",
+				"previous": "Anterior"
 			},
-			processing: "Procesando...",
-			search: "Buscar:",
-			searchPlaceholder: "Término de búsqueda",
-			zeroRecords: "No se encontraron resultados",
-			emptyTable: "Ningún dato disponible en esta tabla",
-			aria: {
-				sortAscending:
-					": Activar para ordenar la columna de manera ascendente",
-				sortDescending:
-					": Activar para ordenar la columna de manera descendente",
+			"processing": "Procesando...",
+			"search": "Buscar:",
+			"searchPlaceholder": "Término de búsqueda",
+			"zeroRecords": "No se encontraron resultados",
+			"emptyTable": "Ningún dato disponible en esta tabla",
+			"aria": {
+				"sortAscending": ": Activar para ordenar la columna de manera ascendente",
+				"sortDescending": ": Activar para ordenar la columna de manera descendente"
 			},
-			select: {
-				rows: {
-					_: "%d filas seleccionadas",
-					0: "clic fila para seleccionar",
-					1: "una fila seleccionada",
-				},
-			},
+			"select": {
+				"rows": {
+					_: '%d filas seleccionadas',
+					0: 'clic fila para seleccionar',
+					1: 'una fila seleccionada'
+				}
+			}
 		},
 		responsive: true,
-		ordering: false,
-		lengthMenu: [
+		"ordering": false,
+		"lengthMenu": [
 			[50, 25, 100, -1],
-			[50, 25, 100, "All"],
+			[50, 25, 100, "All"]
 		],
-		dom: '<"top">t',
+		"dom": '<"top"fpl>i'
 	})
 
-	$("#regTable tbody").on("click", "tr td:first-child", function () {
-		var tr = $(this).closest("tr")
-		var row = table.row(tr)
+
+	$('#terminacion_contratos_table tbody').on('click', 'tr td:first-child', function () {
+		var tr = $(this).closest('tr');
+		var row = table.row(tr);
 
 		if (row.child.isShown()) {
 			// This row is already open - close it
-			row.child.hide()
-			tr.removeClass("shown")
+			row.child.hide();
+			tr.removeClass('shown');
 
-			$(this).children()[0].src = "assets/images/svg/plus-circle-fill.svg"
+			$(this).children()[0].src = "assets/images/svg/plus-circle-fill.svg";
+
+
 		} else {
 			// Open this row
 			row.child(format(row.data())).show()
-			tr.addClass("shown")
+			tr.addClass('shown');
 
-			$(this).children()[0].src =
-				"assets/images/svg/slash-circle-fill.svg"
+			$(this).children()[0].src = "assets/images/svg/slash-circle-fill.svg";
+
+
 		}
-	})
+	});
 	// Responsive Table
 	function format(data) {
 		if (data != null || data != undefined) {
 			return `
         <div class="responsive-box">
             <div>FECHA CREACIÓN:</div>
-            <div>${data[3]}</div>
-            <div>${data[7]}</div>
-            <div>${data[8]}</div>
-        </div>`
+            <div>${data[2]}</div>
+            <div>${data[9]}</div>
+            <div>${data[10]}</div>
+        </div>`;
+
 		}
 	}
-})
 
+});
 
 //Filtrar Columnas a Usuarios
  function FiltrarColumnas() {
@@ -152,10 +146,12 @@ var eliminar = document.getElementsByClassName("btnEliminar");
 // Recorrer todos los elementos y agregar un event listener para el clic
 Array.from(eliminar).forEach(function (elemento) {
 	elemento.addEventListener("click", function () {
+
 		// Seleciona la tabla para coordinar la id del registro en base a elló
 		let tableColumns = $(this).parent().parent().prevAll()
-		let idRegistro = tableColumns[8].textContent.trim();
+		let idRegistro = tableColumns[6].textContent.trim();
 		var formDelete = document.getElementById("delete" + idRegistro);
+
 		// Mostrar la alerta de confirmación
 		Swal.fire({
 			title: "¿Estás seguro?",
@@ -176,7 +172,6 @@ Array.from(eliminar).forEach(function (elemento) {
 
 				// Enviar el formulario
 				formDelete.submit();
-				die();
 
 				// Recargar la página después de 1.2 segundos
 				// setTimeout(function () {

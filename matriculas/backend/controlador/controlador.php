@@ -20,12 +20,15 @@ class controladorMatriculas {
 				"lugar_nacimiento" => isset($_POST["lugar_nacimiento"]) ? $_POST["lugar_nacimiento"] : "",
 				"nacionalidad" => isset($_POST["nacionalidad"]) ? $_POST["nacionalidad"] : "",
 				"direccion" => isset($_POST["direccion"]) ? $_POST["direccion"] : "",
+				"ciudad" => isset($_POST["ciudad"]) ? $_POST["ciudad"] : "",
+				"rh" => isset($_POST["rh"]) ? $_POST["rh"] : "",
 				"barrio" => isset($_POST["barrio"]) ? $_POST["barrio"] : "",
 				"celular" => isset($_POST["celular"]) ? $_POST["celular"] : "",
 				"segundo_celular" => isset($_POST["segundo_celular"]) ? $_POST["segundo_celular"] : "",
 				"estrato" => isset($_POST["estrato"]) ? $_POST["estrato"] : "",
 				"comuna" => isset($_POST["comuna"]) ? $_POST["comuna"] : "",
 				"email" => isset($_POST["email"]) ? $_POST["email"] : "",
+				"file" => isset($_POST["file"]) ? $_POST["file"] : "",
 
 				//DATOS ACUDIENTE
 				"nombre_acudiente" => isset($_POST["nombre_acudiente"]) ? $_POST["nombre_acudiente"] : "",
@@ -92,12 +95,15 @@ class controladorMatriculas {
 				"lugar_nacimiento" => $_POST["lugar_nacimiento"],
 				"nacionalidad" => $_POST["nacionalidad"],
 				"direccion" => $_POST["direccion"],
+				"ciudad" => $_POST["ciudad"],
+				"rh" => $_POST["rh"],
 				"barrio" => $_POST["barrio"],
 				"estrato" => $_POST["estrato"],
 				"comuna" => $_POST["comuna"],
 				"celular" => $_POST["celular"],
 				"segundo_celular"=> $_POST["segundo_celular"],
 				"email" => $_POST["email"],
+				"file" => $_POST["file"],
 
 				//DATOS ACUDIENTE
 				"id_acudiente" => $_POST["id_acudiente"],

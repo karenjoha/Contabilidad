@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset ($_SESSION['logged'])) {
+if (!isset($_SESSION['logged'])) {
 	header("Location: http://lmzt.online/gestionadministrativa/login.php");
 	exit();
 }
@@ -18,7 +18,7 @@ require_once "../../backend/selectObjects.php";
 $controlador_matriculas = new controladorMatriculas();
 
 // Verificar si se proporcionó un ID de alumno
-if (isset ($_GET["id"])) {
+if (isset($_GET["id"])) {
 	$id_alumno = $_GET["id"];
 
 	// Obtener información del alumno
@@ -35,11 +35,23 @@ if (isset ($_GET["id"])) {
 }
 
 // Extraer los datos necesarios del alumno
-$nombre_alumno  = $alumno['nombre_alum'] ?? '';
-$tipo_documento = $alumno['tipo_documento'] ?? '';
-$documento      = $alumno['documento'] ?? '';
-$grupo          = $alumno["grupo"] ?? '';
+$nombre_alumno    = $alumno['nombre_alum'] ?? '';
+$tipo_documento   = $alumno['tipo_documento'] ?? '';
+$documento        = $alumno['documento'] ?? '';
+$grupo            = $alumno["grupo"] ?? '';
 $celular          = $alumno["celular"] ?? '';
+$ciudad           = $alumno["ciudad"] ?? '';
+$rh               = $alumno["rh"] ?? '';
+$file             = $alumno["file"] ?? '';
+$fecha_nacimiento = $alumno["fecha_nacimiento"] ?? '';
+
+$fecha_nacimiento_timestamp = strtotime($fecha_nacimiento);
+$hoy_timestamp              = time(); // Esto obtiene la fecha actual en formato Unix timestamp
+
+$edad_timestamp = $hoy_timestamp - $fecha_nacimiento_timestamp;
+
+// Convertir la diferencia de tiempo en años
+$edad = floor($edad_timestamp / (365 * 24 * 60 * 60)); // 365 días, 24 horas, 60 minutos, 60 segundos
 
 ?>
 
@@ -122,23 +134,42 @@ $celular          = $alumno["celular"] ?? '';
 		td+td {
 			padding-left: 20px;
 		}
+
+		.image_alum {
+			width: 7rem;
+			height: 9rem;
+			position: absolute;
+			z-index: 1;
+			margin-top: 8rem;
+			border: 0.5rem solid #1495D1;
+			margin-left: 7rem;
+		}
+
 	</style>
 </head>
 
 <body class="backgraound">
+	<img class="image_alum" src="<?php echo $file ?>" alt="Vista previa de la imagen">
+
 	<div class="container">
-		<img class="imagenes" src="fondo.png" alt="">
+		<img class="imagenes" src="../../../vendor/images/certificados/fondo.png" alt="">
 		<div class="alumno">
-			<h2><?php echo $nombre_alumno; ?></h2>
-			<p>ID CC <?php echo $documento; ?></p>
+			<h2>
+				<?php echo $nombre_alumno; ?>
+			</h2>
+			<p>ID CC
+				<?php echo $documento; ?>
+			</p>
 		</div>
 		<div class="grupo_alumno">
-			<p><?php echo $grupo ?></p>
+			<p>
+				<?php echo $grupo ?>
+			</p>
 		</div>
 	</div>
 	<br>
 	<div class="container">
-		<img class="imagenes" src="fondoatras.png" alt="">
+		<img class="imagenes" src="../../../vendor/images/certificados/fondoatras.png" alt="">
 		<div class="valides">
 			<p>Valido por 1 año a partir de su expedición </p>
 		</div>
@@ -147,23 +178,33 @@ $celular          = $alumno["celular"] ?? '';
 				<tbody>
 					<tr>
 						<td>Tipo de Sangre</td>
-						<td>3ddddddddddddd0</td>
+						<td>
+							<?php echo $rh ?>
+						</td>
 					</tr>
 					<tr>
 						<td>No. de Contacto</td>
-						<td><?php echo $celular ?></td>
+						<td>
+							<?php echo $celular ?>
+						</td>
 					</tr>
 					<tr>
 						<td>Ciudad o Municipio</td>
-						<td>3ddddddddddddddd5</td>
+						<td>
+							<?php echo $ciudad ?>
+						</td>
 					</tr>
 					<tr>
 						<td>Edad</td>
-						<td>12</td>
+						<td>
+							<?php echo $edad ?>
+						</td>
 					</tr>
 					<tr>
 						<td>Expedido</td>
-						<td><?php echo date('d/m/Y'); ?></td>
+						<td>
+							<?php echo date('d/m/Y'); ?>
+						</td>
 					</tr>
 				</tbody>
 			</table>

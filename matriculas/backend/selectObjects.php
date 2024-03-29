@@ -40,3 +40,20 @@ $sexo = [
 	"FEMENINO",
 	"MASCULINO",
 ];
+
+$rh = [
+	"A+",
+	"O+",
+	"B+",
+	"AB+",
+	"A-",
+	"O-",
+	"B-",
+	"AB-",
+];
+
+$trimestres = [
+	"1",
+	"2",
+	"3",
+];
