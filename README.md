@@ -93,7 +93,7 @@ ADD CONSTRAINT fk_alumno_registro FOREIGN KEY (id_alumno) REFERENCES alumno(id_a
 
 
 CREATE TABLE calificaciones (
-    id_calificaion INT(10) PRIMARY KEY AUTO_INCREMENT,
+    id_calificacion INT(10) PRIMARY KEY AUTO_INCREMENT,
     id_alumno INT(11),
     materia VARCHAR(100),
     nota INT(5),

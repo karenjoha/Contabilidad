@@ -176,7 +176,7 @@ if ($rol == 1 || $rol == 3){
 							</select>
 						</div>
 						<div class="col-md-6">
-							<label for="lugar_nacimiento" class="form-label">Lugar Nacimiento</label>
+							<label for="lugar_nacimiento" class="form-label">Lugar</label>
 							<input name="lugar_nacimiento" type="text" class="form-control" id="lugar_nacimiento" value="<?php if (isset($_GET["id"])) {
 								echo $listar["lugar_nacimiento"];
 							} else {
@@ -253,7 +253,7 @@ if ($rol == 1 || $rol == 3){
 							</select>
 						</div>
 						<div class="col-md-6">
-							<label for="celular" class="form-label">Numero #1</label>
+							<label for="celular" class="form-label">Telefono 1</label>
 							<input name="celular" type="text" class="form-control" id="celular" value="<?php if (isset($_GET["id"])) {
 								echo $listar["celular"];
 							} ?>" required>
@@ -262,7 +262,7 @@ if ($rol == 1 || $rol == 3){
 					<div class="row">
 
 						<div class="col-md-6">
-							<label for="segundo_celular" class="form-label">Numero #2</label>
+							<label for="segundo_celular" class="form-label">Telefono 2</label>
 							<input name="segundo_celular" type="text" class="form-control" id="segundo_celular" value="<?php if (isset($_GET["id"])) {
 								echo $listar["segundo_celular"];
 							} ?>">
@@ -329,7 +329,7 @@ if ($rol == 1 || $rol == 3){
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<label for="periodo_lectivo" class="form-label">Periodo Electivo</label>
+							<label for="periodo_lectivo" class="form-label">Mes de Inicio</label>
 							<select type="select" name="periodo_lectivo" type="text" class="form-control" id="periodo_lectivo" value="<?php if (
 								isset($_GET["id"])
 							) {

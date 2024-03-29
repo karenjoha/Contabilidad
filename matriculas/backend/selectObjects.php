@@ -16,7 +16,19 @@ $grupos = [
 ];
 
 $periodo_lectivo = [
-	"2024",
+	"ENERO",
+	"FEBRERO",
+	"MARZO",
+	"ABRIL",
+	"MAYO",
+	"JUNIO",
+	"JULIO",
+	"AGOSTO",
+	"SEPTIEMBRE",
+	"OCTUBRE",
+	"NOVIEMBRE",
+	"DICIEMBRE"
+
 ];
 
 $tipo_doc = [

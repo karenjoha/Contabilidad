@@ -133,7 +133,6 @@ $mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en
 <body>
     <img class="head_image" src="../../../vendor/images/certificados/fondo_certificado_head.jpg" alt="">
     <div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
-        <p><strong>GI230410484614</strong></p>
         <br>
         <p class="titulo">EL RECTOR DE LA INSTITUCIÓN DE EDUCACION PARA EL TRABAJO Y DESARROLLO HUMANO</p>
         <br>

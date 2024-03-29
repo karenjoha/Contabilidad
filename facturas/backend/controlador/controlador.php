@@ -33,7 +33,7 @@ class controladorFacturas{
 
             $respuesta = ModeloFacturas::mdlRegistro($tabla1, $datos);
 
-            echo'<script type="text/javascript">alert("Registro creado");</script>';
+            echo'<script type="text/javascript">alert("Registro creado"); window.location.href="../";</script>';
 
             return $respuesta;
         }
@@ -78,7 +78,7 @@ class controladorFacturas{
             );
 
             $respuesta = ModeloFacturas::mdlActualizar($tabla1,$datos);
-            echo'<script type="text/javascript">alert("Registro Actualizado");</script>';
+            echo'<script type="text/javascript">alert("Registro Actualizado"); window.location.href="../";</script>';
             return $respuesta;
         }
     }

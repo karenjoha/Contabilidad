@@ -34,7 +34,7 @@ class controladorCalificaciones {
 
             $respuesta = ModeloCalificaciones::mdlRegistro($tabla1, $datos);
 
-            echo '<script type="text/javascript">alert("Registro creado"); window.location.href="../";</script>';
+            echo '<script type="text/javascript">alert("Registro creado");</script>';
 
             return $respuesta;
         }
