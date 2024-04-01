@@ -36,6 +36,8 @@ if (isset($_GET["id"])) {
 
 // Extraer los datos necesarios del alumno
 $nombre_alumno    = $alumno['nombre_alum'] ?? '';
+$primer_apellido    = $alumno['primer_apellido'] ?? '';
+$segundo_apellido    = $alumno['segundo_apellido'] ?? '';
 $tipo_documento   = $alumno['tipo_documento'] ?? '';
 $documento        = $alumno['documento'] ?? '';
 $grupo            = $alumno["grupo"] ?? '';
@@ -155,7 +157,7 @@ $edad = floor($edad_timestamp / (365 * 24 * 60 * 60)); // 365 días, 24 horas, 6
 		<img class="imagenes" src="../../../vendor/images/certificados/fondo.png" alt="">
 		<div class="alumno">
 			<h2>
-				<?php echo $nombre_alumno; ?>
+				<?php echo $nombre_alumno. " ". $primer_apellido. " " . $segundo_apellido; ?>
 			</h2>
 			<p>ID CC
 				<?php echo $documento; ?>
