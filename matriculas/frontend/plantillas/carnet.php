@@ -94,6 +94,7 @@ $edad = floor($edad_timestamp / (365 * 24 * 60 * 60)); // 365 días, 24 horas, 6
 			position: absolute;
 			top: 7rem;
 			left: 19rem;
+			max-width: 15rem;
 		}
 
 		.grupo_alumno {

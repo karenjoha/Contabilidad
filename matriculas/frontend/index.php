@@ -200,17 +200,17 @@ if ($rol == 1 || $rol == 3 || $usuario == 'MANUELA MUÑOZ') { ?>
 												<li><a class="dropdown-item" href="#" onclick="toggleOptions('<?php echo $dato['id_alumno']; ?>'); event.stopPropagation();">Certificado Trimestal</a></li>
 
 												<div id="dropdownOptions-<?php echo $dato['id_alumno']; ?>" class="dropdown-options">
-													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=1">TRIMESTRE 1</a>
-													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=2">TRIMESTRE 2</a>
-													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=3">TRIMESTRE 3</a>
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=1" target="_blank">TRIMESTRE 1</a>
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=2" target="_blank">TRIMESTRE 2</a>
+													<a href="plantillas/certificadoTrimestral.php?id=<?php echo $dato['id_alumno']; ?>&trimestre=3" target="_blank">TRIMESTRE 3</a>
 													<!-- Añade más opciones según sea necesario -->
 												</div>
 												<!-- Botón o enlace para abrir el modal -->
 												<!-- <li><a class="dropdown-item" href="form/modal.php?id=<?php echo $dato['id_alumno']; ?>">Certificado Trimestal</a></li> -->
 												<li><a class="dropdown-item" href="../notas/frontend/formulario/index.php?id=<?php echo $dato['id_alumno']; ?>">Agregar Notas</a></li>
-												<li><a class="dropdown-item" href="plantillas/certificadoMetropolitano.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Metropolitano</a></li>
-												<li><a class="dropdown-item" href="plantillas/certificadoMedellin.php?id=<?php echo $dato['id_alumno']; ?>">Certificado de estudio resolucion Medellin</a></li>
-												<li><a class="dropdown-item" href="plantillas/cartaPresentacion.php?id=<?php echo $dato['id_alumno']; ?>">Carta de presentación</a></li>
+												<li><a class="dropdown-item" href="plantillas/certificadoMetropolitano.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Certificado de estudio resolucion Metropolitano</a></li>
+												<li><a class="dropdown-item" href="plantillas/certificadoMedellin.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Certificado de estudio resolucion Medellin</a></li>
+												<li><a class="dropdown-item" href="plantillas/cartaPresentacion.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Carta de presentación</a></li>
 												<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>" target="_blank">Carnet</a></li>
 
 												<!--<li><a class="dropdown-item" href="plantillas/carnet.php?id=<?php echo $dato['id_alumno']; ?>">Carnet</a></li>--> <!-- Añade más opciones según sea necesario -->
