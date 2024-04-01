@@ -53,6 +53,8 @@ $nombre_alumno  = $alumno['nombre_alum'] ?? '';
 $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
+$primer_apellido    = $alumno['primer_apellido'] ?? '';
+$segundo_apellido    = $alumno['segundo_apellido'] ?? '';
 ?>
 
 <html lang="es">
@@ -102,7 +104,7 @@ $grupo          = $alumno["grupo"] ?? '';
 		<p>ITELME “Instituto Técnico Laboral de Medellín”, Institución de Educación para el Trabajo y el Desarrollo Humano, de propiedad de Global System International SAS con Nit.900.733.974-9, ubicado en la Calle 16 Sur No. 48B-04, con Licencia de Funcionamiento No.10140 de 2011 - No.008176 de 2015 - No. 202250030794 de 2022 y No. 202350083762, expedida por la Secretaria de Educación de Medellín Distrito Especial de Ciencia, Tecnología e Innovación, en cumplimiento de la Ley General de Educación 115 de 1994, Decreto 1075 de 2015 y demás concordantes por el Ministerio de Educación Nacional.</p>
 		<p>Formamos Técnicos competentes en los siguientes programas <strong>TÉCNICOS LABORALES POR COMPETENCIA EN</strong>: Auxiliar Contable y Financiero, Auxiliar Administrativo, Secretaria(o) Ejecutiva(o), Auxiliar en Mercadeo y Ventas, Auxiliar de Comercio Exterior, Asistente de Cocina Internacional, Recepción Hotelera, Auxiliar en Investigación judicial y Criminalística y Auxiliar de Educación a la Primera Infancia y Auxiliar en Mecánica Dental, “Educación para el Trabajo y el Desarrollo Humano”.</p>
 		<p>Nuestros estudiantes deben realizar una práctica empresarial, las cuales tienen como objetivo complementar su aprendizaje en lo que compete al área de aplicación de los conceptos teóricos en la práctica, por lo tanto, solicitamos su colaboración permitiendo presentar prácticas empresariales en su empresa a la estudiante: <strong>
-				<?php echo $nombre_alumno; ?>
+		<?php echo $nombre_alumno. " ". $primer_apellido. " " . $segundo_apellido; ?>
 			</strong> identificada con documento de identidad No.
 			<?php echo $documento; ?> Estudiante del programa Técnico Laboral en <strong>
 				<?php echo $grupo ?>

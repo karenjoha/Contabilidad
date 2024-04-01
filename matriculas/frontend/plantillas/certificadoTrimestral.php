@@ -56,6 +56,8 @@ $nombre_alumno  = $alumno['nombre_alum'] ?? '';
 $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
+$primer_apellido    = $alumno['primer_apellido'] ?? '';
+$segundo_apellido    = $alumno['segundo_apellido'] ?? '';
 // Obtener las calificaciones del alumno para el trimestre dado
 $calificaciones = $controlador_facturas->ctrObtenerCalificacionesPorTrimestre($id_alumno, $_GET["trimestre"]);
 
@@ -138,7 +140,7 @@ $mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en
         <br>
         <p class="titulo"><strong>CERTIFICA QUE:</strong></p>
         <p>
-            <?php echo $nombre_alumno; ?>, identificado(a) con documento de identidad CC Nº
+            <?php echo $nombre_alumno. " ". $primer_apellido. " " . $segundo_apellido; ?>, identificado(a) con documento de identidad CC Nº
             <?php echo $documento ?>, se encuentra matriculado(a) en el programa Técnico Laboral en
             <?php echo $grupo ?>, en el cual ha cursado y aprobado, el
             <?php echo $trimestre ?> trimestre:

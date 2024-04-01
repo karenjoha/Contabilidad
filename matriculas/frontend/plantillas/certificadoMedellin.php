@@ -54,6 +54,8 @@ $tipo_documento = $alumno['tipo_documento'] ?? '';
 $documento      = $alumno['documento'] ?? '';
 $grupo          = $alumno["grupo"] ?? '';
 $fecha_registro          = $alumno["fecha_registro"] ?? '';
+$primer_apellido    = $alumno['primer_apellido'] ?? '';
+$segundo_apellido    = $alumno['segundo_apellido'] ?? '';
 // Obtener el nombre del mes en español
 $mes_actual = date('F'); // Obtiene el nombre del mes en inglés
 $mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en el array
@@ -75,7 +77,7 @@ $mes_en_espanol = $meses[$mes_actual]; // Busca el nombre del mes en español en
 	<div style="font-family: Arial, sans-serif; margin: 0; padding: 20px;">
 		<p><strong>HACE CONSTAR</strong></p>
 		<p>Que, <strong>
-				<?php echo $nombre_alumno; ?>
+		<?php echo $nombre_alumno. " ". $primer_apellido. " " . $segundo_apellido; ?>
 			</strong> identificado con Cédula de Ciudadanía No.
 			<?php echo $documento ?>, se encuentra cursando el programa Técnico Laboral en <strong>
 				<?php echo $grupo ?>
